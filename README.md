@@ -6,7 +6,8 @@ Repositorio colaborativo destinado a la recopilación, documentación y conserva
 
 ## Catálogo Web
 
-La biblioteca puede consultarse a través de la página web del proyecto (GitHub Pages).
+Puedes consultar la biblioteca en la web del proyecto aquí:  
+[https://admguardo.github.io/biblioteca-piezas-3d/](https://admguardo.github.io/biblioteca-piezas-3d/)
 
 ---
 
