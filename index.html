@@ -16,14 +16,22 @@
         <img src="imagenes/logo_biblioteca3D.png" alt="Logo TECH 3D" class="custom-logo">
         <span>TECH 3D <span class="text-light">LIBRARY</span></span>
     </div>
-    <nav>
-        <a href="#catalogo" class="nav-link active"><i data-lucide="layers"></i> Catálogo</a>
-        <a href="#estructura" class="nav-link"><i data-lucide="folder-tree"></i> Estructura</a>
-        <a href="#estado" class="nav-link"><i data-lucide="bar-chart-3"></i> Estado</a>
-        <button id="theme-toggle" class="btn-theme" aria-label="Cambiar tema">
+    
+    <div class="nav-actions">
+        <button id="theme-toggle" class="btn-icon" aria-label="Cambiar tema">
             <i data-lucide="sun" class="sun-icon"></i>
             <i data-lucide="moon" class="moon-icon"></i>
         </button>
+        <button id="menu-toggle" class="btn-icon burger-menu" aria-label="Abrir menú">
+            <i data-lucide="menu" class="menu-icon"></i>
+            <i data-lucide="x" class="close-icon hidden"></i>
+        </button>
+    </div>
+
+    <nav id="nav-menu" class="nav-links">
+        <a href="#catalogo" class="nav-link active"><i data-lucide="layers"></i> Catálogo</a>
+        <a href="#estructura" class="nav-link"><i data-lucide="folder-tree"></i> Estructura</a>
+        <a href="#estado" class="nav-link"><i data-lucide="bar-chart-3"></i> Estado</a>
     </nav>
 </header>
 
@@ -34,14 +42,14 @@
         
         <div class="search-container">
             <i data-lucide="search" class="search-icon"></i>
-            <input id="search" type="text" placeholder="Buscar por nombre, tipo o estado (ej: engranaje)...">
+            <input id="search" type="text" placeholder="Buscar por nombre, tipo o estado...">
         </div>
     </section>
 
     <section class="filters-container">
         <span class="filter-label">Filtrar por categoría:</span>
         <div class="filters">
-            <button class="btn-filter active" data-filter="all">Todas las piezas</button>
+            <button class="btn-filter active" data-filter="all">Todas</button>
             <button class="btn-filter" data-filter="engranajes">Engranajes</button>
             <button class="btn-filter" data-filter="soportes">Soportes</button>
             <button class="btn-filter" data-filter="carcasas">Carcasas</button>
@@ -84,7 +92,7 @@
         </div>
         <div id="no-results" class="no-results hidden">
             <i data-lucide="alert-circle"></i>
-            <p>No se encontraron piezas que coincidan con los criterios.</p>
+            <p>No se encontraron piezas que coincidan.</p>
         </div>
     </section>
 
@@ -102,44 +110,40 @@
                 <pre><code>📦 biblioteca-piezas-3d
 ├── 📂 piezas/       <span class="code-comment"># Archivos .STL y .STEP</span>
 ├── 📂 docs/         <span class="code-comment"># Planos técnicos en PDF</span>
-├── 📂 plantillas/   <span class="code-comment"># Parámetros de impresión y mecanizado</span>
-└── 📂 imagenes/     <span class="code-comment"># Renders y capturas técnicas</span></code></pre>
+├── 📂 plantillas/   <span class="code-comment"># Impresión y mecanizado</span>
+└── 📂 imagenes/     <span class="code-comment"># Renders y capturas</span></code></pre>
             </div>
         </section>
 
         <section id="estado" class="panel-section">
             <div class="panel-header">
                 <i data-lucide="bar-chart-3" class="icon-blue"></i>
-                <h2>Estado General del Proyecto</h2>
+                <h2>Estado General</h2>
             </div>
             <div class="table-container">
                 <table class="tech-table">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Componente Mecánico</th>
-                            <th>Clasificación</th>
-                            <th>Estado Técnico</th>
+                            <th>Componente</th>
+                            <th>Estado</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><code>001</code></td>
                             <td class="font-medium">Engranaje Helicoidal</td>
-                            <td><span class="badge">Mecánica</span></td>
-                            <td><span class="status-indicator dev">En desarrollo</span></td>
+                            <td><span class="status-indicator dev">Desarrollo</span></td>
                         </tr>
                         <tr>
                             <td><code>002</code></td>
                             <td class="font-medium">Soporte Motor NEMA</td>
-                            <td><span class="badge">Estructura</span></td>
-                            <td><span class="status-indicator ok">Listo para producción</span></td>
+                            <td><span class="status-indicator ok">Producción</span></td>
                         </tr>
                         <tr>
                             <td><code>003</code></td>
                             <td class="font-medium">Carcasa Reductora</td>
-                            <td><span class="badge">Protección</span></td>
-                            <td><span class="status-indicator dev">En desarrollo</span></td>
+                            <td><span class="status-indicator dev">Desarrollo</span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -151,7 +155,7 @@
 <footer>
     <div class="footer-content">
         <div><i data-lucide="factory" style="vertical-align: middle; margin-right: 5px;"></i> Mantenimiento Electromecánico &copy; 2026</div>
-        <div class="version-tag">v2.2.0</div>
+        <div class="version-tag">v2.3.0</div>
     </div>
 </footer>
 
