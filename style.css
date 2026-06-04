@@ -1,14 +1,33 @@
+/* Paleta base por defecto (Modo Oscuro Industrial) */
 :root {
-    --bg-main: #0b0f19;
-    --bg-panel: #131a2c;
-    --bg-input: #1e293b;
-    --border-color: #24324d;
-    --text-main: #f8fafc;
-    --text-muted: #94a3b8;
-    --accent: #38bdf8;
-    --accent-hover: #0ea5e9;
+    --bg-main: #11141a;
+    --bg-panel: #171d26;
+    --bg-input: #202733;
+    --border-color: #2b3545;
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --accent: #2563eb; /* Azul cobalto técnico */
+    --accent-hover: #1d4ed8;
+    --success: #059669;
+    --warning: #d97706;
+    --code-bg: #0b0e14;
+    --table-header: #0e1218;
+}
+
+/* Variables para Modo Claro */
+[data-theme="light"] {
+    --bg-main: #f4f6f9;
+    --bg-panel: #ffffff;
+    --bg-input: #ffffff;
+    --border-color: #d1d5db;
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
     --success: #10b981;
     --warning: #f59e0b;
+    --code-bg: #f8fafc;
+    --table-header: #e5e7eb;
 }
 
 * {
@@ -26,6 +45,14 @@ body {
     background: var(--bg-main);
     color: var(--text-main);
     line-height: 1.5;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* LOGO PERSONALIZADO */
+.custom-logo {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
 }
 
 /* NAVBAR */
@@ -34,18 +61,18 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 16px 40px;
-    background: rgba(19, 26, 44, 0.9);
-    backdrop-filter: blur(10px);
+    background: var(--bg-panel);
     border-bottom: 1px solid var(--border-color);
     position: sticky;
     top: 0;
     z-index: 100;
+    transition: background 0.3s, border-color 0.3s;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     font-weight: 700;
     font-size: 1.2rem;
     letter-spacing: 0.5px;
@@ -62,6 +89,7 @@ body {
 
 .navbar nav {
     display: flex;
+    align-items: center;
     gap: 25px;
 }
 
@@ -85,6 +113,36 @@ body {
     height: 16px;
 }
 
+/* BOTÓN INTERRUPTOR TEMA (SOL / LUNA) */
+.btn-theme {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.btn-theme:hover {
+    color: var(--text-main);
+    background: rgba(128, 128, 128, 0.1);
+}
+
+.btn-theme svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Lógica de visibilidad de iconos del tema */
+[data-theme="light"] .sun-icon, 
+:root:not([data-theme="light"]) .moon-icon {
+    display: none;
+}
+
 /* HERO */
 main {
     max-width: 1300px;
@@ -103,9 +161,6 @@ main {
     font-size: 2.8rem;
     font-weight: 700;
     margin-bottom: 12px;
-    background: linear-gradient(to right, #fff, var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
@@ -134,10 +189,10 @@ main {
 #search {
     width: 100%;
     padding: 14px 16px 14px 48px;
-    background: var(--bg-panel);
+    background: var(--bg-input);
     border: 1px solid var(--border-color);
     border-radius: 12px;
-    color: white;
+    color: var(--text-main);
     font-size: 1rem;
     transition: all 0.3s;
     outline: none;
@@ -145,10 +200,10 @@ main {
 
 #search:focus {
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
-/* FILTERS */
+/* FILTROS */
 .filters-container {
     display: flex;
     flex-direction: column;
@@ -186,21 +241,16 @@ main {
 }
 
 .btn-filter:hover {
-    color: white;
-    background: rgba(255,255,255,0.05);
+    color: var(--text-main);
 }
 
 .btn-filter.active {
     background: var(--accent);
-    color: var(--bg-main);
+    color: white;
     font-weight: 600;
 }
 
-/* GRID & CARDS */
-.catalog-section {
-    min-height: 300px;
-}
-
+/* CARDS GRID */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -213,7 +263,7 @@ main {
     border: 1px solid var(--border-color);
     padding: 24px;
     border-radius: 16px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -221,8 +271,7 @@ main {
 
 .card:hover {
     transform: translateY(-4px);
-    border-color: #3b527a;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    border-color: var(--accent);
 }
 
 .card-header {
@@ -242,7 +291,7 @@ main {
     font-family: 'Fira Code', monospace;
     font-size: 0.85rem;
     color: var(--text-muted);
-    background: rgba(255,255,255,0.05);
+    background: rgba(128,128,128,0.1);
     padding: 2px 8px;
     border-radius: 4px;
 }
@@ -266,39 +315,19 @@ main {
     border-radius: 6px;
     font-size: 0.8rem;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
 .tag-dev {
-    background: rgba(245, 158, 11, 0.1);
+    background: rgba(217, 119, 6, 0.15);
     color: var(--warning);
-    border: 1px solid rgba(245, 158, 11, 0.2);
 }
 
 .tag-ok {
-    background: rgba(16, 185, 129, 0.1);
+    background: rgba(5, 150, 105, 0.15);
     color: var(--success);
-    border: 1px solid rgba(16, 185, 129, 0.2);
 }
 
-.no-results {
-    text-align: center;
-    padding: 60px;
-    color: var(--text-muted);
-}
-
-.no-results svg {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 12px;
-}
-
-.hidden {
-    display: none !important;
-}
-
-/* LAYOUT LOWER SECTIONS */
+/* PANELS LOWER */
 .sections-split {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -307,9 +336,7 @@ main {
 }
 
 @media (max-width: 900px) {
-    .sections-split {
-        grid-template-columns: 1fr;
-    }
+    .sections-split { grid-template-columns: 1fr; }
 }
 
 .panel-section {
@@ -326,21 +353,18 @@ main {
     margin-bottom: 20px;
 }
 
-.panel-header h2 {
-    font-size: 1.3rem;
-    font-weight: 600;
-}
+.panel-header h2 { font-size: 1.3rem; }
 
-/* CODE WINDOW (ESTRUCTURA) */
+/* CODE WINDOW */
 .code-window {
-    background: #070a12;
+    background: var(--code-bg);
     border-radius: 10px;
     border: 1px solid var(--border-color);
     overflow: hidden;
 }
 
 .window-header {
-    background: #0f1422;
+    background: var(--table-header);
     padding: 10px 16px;
     display: flex;
     align-items: center;
@@ -348,11 +372,7 @@ main {
     border-bottom: 1px solid var(--border-color);
 }
 
-.dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-}
+.dot { width: 10px; height: 10px; border-radius: 50%; }
 .dot.red { background: #ef4444; }
 .dot.yellow { background: #f59e0b; }
 .dot.green { background: #10b981; }
@@ -364,80 +384,31 @@ main {
     margin-left: 10px;
 }
 
-pre {
-    padding: 16px;
-    overflow-x: auto;
-}
+pre { padding: 16px; overflow-x: auto; }
+code { font-family: 'Fira Code', monospace; font-size: 0.9rem; }
+.code-comment { color: #6b7280; font-style: italic; }
 
-code {
-    font-family: 'Fira Code', monospace;
-    font-size: 0.9rem;
-    color: #e2e8f0;
-}
-
-.code-comment {
-    color: #576f93;
-    font-style: italic;
-}
-
-/* TABLE (ESTADO) */
-.table-container {
-    overflow-x: auto;
-}
-
-.tech-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
-    font-size: 0.9rem;
-}
-
+/* TABLES */
+.table-container { overflow-x: auto; }
+.tech-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
 .tech-table th {
-    background: #0f1422;
+    background: var(--table-header);
     padding: 12px 16px;
     color: var(--text-muted);
     font-weight: 600;
     font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
     border-bottom: 1px solid var(--border-color);
 }
-
-.tech-table td {
-    padding: 14px 16px;
-    border-bottom: 1px solid rgba(36, 50, 77, 0.5);
-}
-
-.tech-table tbody tr:last-child td {
-    border-bottom: none;
-}
-
-.font-medium {
-    font-weight: 500;
-}
-
+.tech-table td { padding: 14px 16px; border-bottom: 1px solid var(--border-color); }
 .badge {
-    background: rgba(56, 189, 248, 0.1);
+    background: rgba(37, 99, 235, 0.1);
     color: var(--accent);
     padding: 2px 8px;
     border-radius: 4px;
-    font-size: 0.8rem;
 }
-
-.status-indicator {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.85rem;
-}
-
-.status-indicator::before {
-    content: '';
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-}
-
+.status-indicator { display: inline-flex; align-items: center; gap: 6px; }
+.status-indicator::before { content: ''; width: 8px; height: 8px; border-radius: 50%; }
 .status-indicator.dev::before { background: var(--warning); }
 .status-indicator.ok::before { background: var(--success); }
 
@@ -448,7 +419,6 @@ footer {
     background: var(--bg-panel);
     padding: 20px 40px;
 }
-
 .footer-content {
     max-width: 1300px;
     margin: 0 auto;
@@ -457,10 +427,10 @@ footer {
     color: var(--text-muted);
     font-size: 0.9rem;
 }
-
 .version-tag {
     font-family: 'Fira Code', monospace;
-    background: #070a12;
+    background: var(--bg-main);
     padding: 2px 8px;
     border-radius: 4px;
 }
+.hidden { display: none !important; }
