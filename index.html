@@ -1,256 +1,166 @@
-// =============================================
-// TECH 3D LIBRARY — script.js
-// =============================================
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca 3D - Ingeniería Electromecánica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
 
-document.addEventListener('DOMContentLoaded', () => {
+<header class="navbar">
+    <div class="logo">
+        <img src="imagenes/logo_biblioteca3D.png" alt="Logo TECH 3D" class="custom-logo">
+        <span>TECH 3D <span class="text-light">LIBRARY</span></span>
+    </div>
+    
+    <div class="nav-actions">
+        <button id="theme-toggle" class="btn-icon" aria-label="Cambiar tema">
+            <i data-lucide="sun" class="sun-icon"></i>
+            <i data-lucide="moon" class="moon-icon"></i>
+        </button>
+        <button id="menu-toggle" class="btn-icon burger-menu" aria-label="Abrir menú">
+            <i data-lucide="menu" class="menu-icon"></i>
+            <i data-lucide="x" class="close-icon hidden"></i>
+        </button>
+    </div>
 
-    // --- TEMA OSCURO / CLARO ---
-    const themeToggle = document.getElementById('theme-toggle');
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    if (savedTheme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    <nav id="nav-menu" class="nav-links">
+        <a href="#catalogo" class="nav-link active"><i data-lucide="layers"></i> Catálogo</a>
+        <a href="#estructura" class="nav-link"><i data-lucide="folder-tree"></i> Estructura</a>
+        <a href="#estado" class="nav-link"><i data-lucide="bar-chart-3"></i> Estado</a>
+    </nav>
+</header>
 
-    themeToggle.addEventListener('click', () => {
-        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-        document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
-        localStorage.setItem('theme', isLight ? 'dark' : 'light');
-    });
+<main>
+    <section class="hero">
+        <h1>Biblioteca de Piezas 3D</h1>
+        <p class="subtitle">Ingeniería Electromecánica · Catálogo técnico digital de precisión</p>
+        
+        <div class="search-container">
+            <i data-lucide="search" class="search-icon"></i>
+            <input id="search" type="text" placeholder="Buscar por nombre, tipo o estado...">
+        </div>
+    </section>
 
-    // --- MENÚ HAMBURGUESA ---
-    const menuToggle = document.getElementById('menu-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    const menuIcon = menuToggle.querySelector('.menu-icon');
-    const closeIcon = menuToggle.querySelector('.close-icon');
+    <section class="filters-container">
+        <span class="filter-label">Filtrar por categoría:</span>
+        <div class="filters">
+            <button class="btn-filter active" data-filter="all">Todas</button>
+            <button class="btn-filter" data-filter="engranajes">Engranajes</button>
+            <button class="btn-filter" data-filter="soportes">Soportes</button>
+            <button class="btn-filter" data-filter="carcasas">Carcasas</button>
+        </div>
+    </section>
 
-    menuToggle.addEventListener('click', () => {
-        const isOpen = navMenu.classList.toggle('open');
-        menuIcon.classList.toggle('hidden', isOpen);
-        closeIcon.classList.toggle('hidden', !isOpen);
-    });
-
-    // Cerrar menú al hacer click en un enlace
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('open');
-            menuIcon.classList.remove('hidden');
-            closeIcon.classList.add('hidden');
-        });
-    });
-
-    // --- ACTIVE NAV LINK EN SCROLL ---
-    const sections = document.querySelectorAll('section[id], div[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                navLinks.forEach(link => {
-                    link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
-                });
-            }
-        });
-    }, { threshold: 0.4 });
-
-    sections.forEach(s => observer.observe(s));
-
-    // --- DATOS DE PIEZAS ---
-    const piezas = [
-        {
-            id: '001',
-            nombre: 'Engranaje Helicoidal',
-            descripcion: 'Pieza mecánica de transmisión de potencia de alta resistencia.',
-            categoria: 'engranajes',
-            estado: 'desarrollo',
-            icono: 'settings',
-            material: 'Acero AISI 4140',
-            peso: '1.24 kg',
-            revision: 'Rev. A'
-        },
-        {
-            id: '002',
-            nombre: 'Soporte Motor NEMA',
-            descripcion: 'Soporte estructural reforzado para motores paso a paso.',
-            categoria: 'soportes',
-            estado: 'finalizado',
-            icono: 'wrench',
-            material: 'Aluminio 6061',
-            peso: '0.87 kg',
-            revision: 'Rev. C'
-        },
-        {
-            id: '003',
-            nombre: 'Carcasa Reductora',
-            descripcion: 'Protección modular estanca para alojamiento de mecanismos internos.',
-            categoria: 'carcasas',
-            estado: 'desarrollo',
-            icono: 'box',
-            material: 'PLA+ / ABS',
-            peso: '0.45 kg',
-            revision: 'Rev. B'
-        },
-        {
-            id: '004',
-            nombre: 'Piñón Recto 32T',
-            descripcion: 'Engranaje recto de 32 dientes para transmisiones de baja velocidad.',
-            categoria: 'engranajes',
-            estado: 'finalizado',
-            icono: 'cog',
-            material: 'Nylon PA6',
-            peso: '0.31 kg',
-            revision: 'Rev. D'
-        },
-        {
-            id: '005',
-            nombre: 'Soporte Rodamiento SKF',
-            descripcion: 'Alojamiento de precisión para rodamientos SKF serie 6000.',
-            categoria: 'soportes',
-            estado: 'revision',
-            icono: 'anchor',
-            material: 'Acero St-37',
-            peso: '0.62 kg',
-            revision: 'Rev. A'
-        },
-        {
-            id: '006',
-            nombre: 'Carcasa Electrónica IP65',
-            descripcion: 'Caja de protección IP65 para electrónica de control industrial.',
-            categoria: 'carcasas',
-            estado: 'finalizado',
-            icono: 'shield',
-            material: 'ABS Ignífugo',
-            peso: '0.19 kg',
-            revision: 'Rev. E'
-        }
-    ];
-
-    const estadoConfig = {
-        finalizado: { label: 'Finalizado',   cls: 'tag-ok',  indicator: 'ok'  },
-        desarrollo: { label: 'En desarrollo', cls: 'tag-dev', indicator: 'dev' },
-        revision:   { label: 'En revisión',   cls: 'tag-rev', indicator: 'rev' }
-    };
-
-    // --- RENDER DE CARDS ---
-    const grid = document.getElementById('catalog-grid');
-    const noResults = document.getElementById('no-results');
-    const contador = document.getElementById('parte-contador');
-
-    function renderCards(lista) {
-        grid.innerHTML = '';
-
-        if (lista.length === 0) {
-            noResults.classList.remove('hidden');
-            if (contador) contador.textContent = '0 piezas';
-            return;
-        }
-
-        noResults.classList.add('hidden');
-        if (contador) contador.textContent = `${lista.length} pieza${lista.length !== 1 ? 's' : ''}`;
-
-        lista.forEach((p, i) => {
-            const cfg = estadoConfig[p.estado] || estadoConfig.desarrollo;
-            const card = document.createElement('div');
-            card.className = `card item ${p.categoria}`;
-            card.dataset.status = p.estado;
-            card.style.animationDelay = `${i * 60}ms`;
-            card.innerHTML = `
+    <section id="catalogo" class="catalog-section">
+        <div class="grid" id="catalog-grid">
+            
+            <div class="card item engranajes" data-status="desarrollo">
                 <div class="card-header">
-                    <i data-lucide="${p.icono}" class="card-icon"></i>
-                    <div class="card-meta">
-                        <span class="part-id">#${p.id}</span>
-                        <span class="revision-tag">${p.revision}</span>
-                    </div>
+                    <i data-lucide="settings" class="card-icon"></i>
+                    <span class="part-id">#001</span>
                 </div>
-                <h3>${p.nombre}</h3>
-                <p>${p.descripcion}</p>
-                <div class="card-specs">
-                    <span class="spec-item"><i data-lucide="layers" class="spec-icon"></i>${p.material}</span>
-                    <span class="spec-item"><i data-lucide="scale" class="spec-icon"></i>${p.peso}</span>
+                <h3>Engranaje Helicoidal</h3>
+                <p>Pieza mecánica de transmisión de potencia de alta resistencia.</p>
+                <span class="tag tag-dev">En desarrollo</span>
+            </div>
+
+            <div class="card item soportes" data-status="finalizado">
+                <div class="card-header">
+                    <i data-lucide="wrench" class="card-icon"></i>
+                    <span class="part-id">#002</span>
                 </div>
-                <span class="tag ${cfg.cls}">${cfg.label}</span>
-            `;
-            grid.appendChild(card);
-        });
+                <h3>Soporte Motor NEMA</h3>
+                <p>Soporte estructural reforzado para motores paso a paso estructurales.</p>
+                <span class="tag tag-ok">Finalizado</span>
+            </div>
 
-        // Re-inicializar iconos de Lucide en las nuevas cards
-        if (window.lucide) lucide.createIcons();
-    }
+            <div class="card item carcasas" data-status="desarrollo">
+                <div class="card-header">
+                    <i data-lucide="box" class="card-icon"></i>
+                    <span class="part-id">#003</span>
+                </div>
+                <h3>Carcasa Reductora</h3>
+                <p>Protección modular estanca para alojamiento de mecanismos internos.</p>
+                <span class="tag tag-dev">En desarrollo</span>
+            </div>
 
-    // --- BÚSQUEDA Y FILTRO ---
-    const searchInput = document.getElementById('search');
-    const filterBtns = document.querySelectorAll('.btn-filter');
-    let filtroActivo = 'all';
-    let busqueda = '';
+        </div>
+        <div id="no-results" class="no-results hidden">
+            <i data-lucide="alert-circle"></i>
+            <p>No se encontraron piezas que coincidan.</p>
+        </div>
+    </section>
 
-    function aplicarFiltros() {
-        let resultado = piezas.filter(p => {
-            const matchCategoria = filtroActivo === 'all' || p.categoria === filtroActivo;
-            const matchBusqueda = busqueda === '' ||
-                p.nombre.toLowerCase().includes(busqueda) ||
-                p.descripcion.toLowerCase().includes(busqueda) ||
-                p.categoria.toLowerCase().includes(busqueda) ||
-                p.estado.toLowerCase().includes(busqueda) ||
-                p.material.toLowerCase().includes(busqueda);
-            return matchCategoria && matchBusqueda;
-        });
-        renderCards(resultado);
-    }
+    <div class="sections-split">
+        <section id="estructura" class="panel-section">
+            <div class="panel-header">
+                <i data-lucide="folder-tree" class="icon-blue"></i>
+                <h2>Estructura del Sistema</h2>
+            </div>
+            <div class="code-window">
+                <div class="window-header">
+                    <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                    <span class="window-title">root / biblioteca-piezas-3d</span>
+                </div>
+                <pre><code>📦 biblioteca-piezas-3d
+├── 📂 piezas/       <span class="code-comment"># Archivos .STL y .STEP</span>
+├── 📂 docs/         <span class="code-comment"># Planos técnicos en PDF</span>
+├── 📂 plantillas/   <span class="code-comment"># Impresión y mecanizado</span>
+└── 📂 imagenes/     <span class="code-comment"># Renders y capturas</span></code></pre>
+            </div>
+        </section>
 
-    searchInput.addEventListener('input', (e) => {
-        busqueda = e.target.value.toLowerCase().trim();
-        aplicarFiltros();
-    });
+        <section id="estado" class="panel-section">
+            <div class="panel-header">
+                <i data-lucide="bar-chart-3" class="icon-blue"></i>
+                <h2>Estado General</h2>
+            </div>
+            <div class="table-container">
+                <table class="tech-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Componente</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>001</code></td>
+                            <td class="font-medium">Engranaje Helicoidal</td>
+                            <td><span class="status-indicator dev">Desarrollo</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>002</code></td>
+                            <td class="font-medium">Soporte Motor NEMA</td>
+                            <td><span class="status-indicator ok">Producción</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>003</code></td>
+                            <td class="font-medium">Carcasa Reductora</td>
+                            <td><span class="status-indicator dev">Desarrollo</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</main>
 
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            filtroActivo = btn.dataset.filter;
-            aplicarFiltros();
-        });
-    });
+<footer>
+    <div class="footer-content">
+        <div><i data-lucide="factory" style="vertical-align: middle; margin-right: 5px;"></i> Mantenimiento Electromecánico &copy; 2026</div>
+        <div class="version-tag">v2.3.0</div>
+    </div>
+</footer>
 
-    // --- RENDER INICIAL ---
-    renderCards(piezas);
-
-    // --- ACTUALIZAR TABLA DE ESTADO DINÁMICAMENTE ---
-    const tbody = document.querySelector('.tech-table tbody');
-    if (tbody) {
-        tbody.innerHTML = piezas.map(p => {
-            const cfg = estadoConfig[p.estado] || estadoConfig.desarrollo;
-            return `
-                <tr>
-                    <td><code>${p.id}</code></td>
-                    <td class="font-medium">${p.nombre}</td>
-                    <td><span class="status-indicator ${cfg.indicator}">${cfg.label}</span></td>
-                </tr>
-            `;
-        }).join('');
-    }
-
-    // --- CONTADOR HERO ---
-    function animarContador(elemento, fin, duracion) {
-        let inicio = 0;
-        const paso = duracion / fin;
-        const timer = setInterval(() => {
-            inicio++;
-            elemento.textContent = inicio;
-            if (inicio >= fin) clearInterval(timer);
-        }, paso);
-    }
-
-    const statNums = document.querySelectorAll('.stat-num');
-    statNums.forEach(el => {
-        const val = parseInt(el.dataset.val);
-        animarContador(el, val, 800);
-    });
-
-    // --- TOOLTIP EN CARDS ---
-    document.addEventListener('mouseover', (e) => {
-        const card = e.target.closest('.card');
-        if (card) card.classList.add('card-hovered');
-    });
-    document.addEventListener('mouseout', (e) => {
-        const card = e.target.closest('.card');
-        if (card) card.classList.remove('card-hovered');
-    });
-
-});
+<script>
+    lucide.createIcons();
+</script>
+</body>
+</html>
