@@ -18,7 +18,7 @@
     </div>
     
     <div class="nav-actions">
-        <button id="theme-toggle" class="btn-icon" aria-label="Cambiar tema">
+        <button id="theme-toggle" class="btn-icon" aria-label="Cambiar tema" title="Cambiar tema">
             <i data-lucide="sun" class="sun-icon"></i>
             <i data-lucide="moon" class="moon-icon"></i>
         </button>
@@ -37,62 +37,61 @@
 
 <main>
     <section class="hero">
-        <h1>Biblioteca de Piezas 3D</h1>
-        <p class="subtitle">Ingeniería Electromecánica · Catálogo técnico digital de precisión</p>
+        <div class="hero-badge"><i data-lucide="zap"></i> Catálogo técnico digital</div>
+        <h1>Biblioteca de Piezas <span class="accent-text">3D</span></h1>
+        <p class="subtitle">Ingeniería Electromecánica · Gestión de componentes técnicos de precisión</p>
         
         <div class="search-container">
             <i data-lucide="search" class="search-icon"></i>
-            <input id="search" type="text" placeholder="Buscar por nombre, tipo o estado...">
+            <input id="search" type="text" placeholder="Buscar por nombre, material, estado...">
+            <kbd class="search-kbd">⌘K</kbd>
+        </div>
+
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-num" data-val="6">0</span>
+                <span class="stat-label">Piezas</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-num" data-val="3">0</span>
+                <span class="stat-label">Categorías</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-num" data-val="3">0</span>
+                <span class="stat-label">Finalizadas</span>
+            </div>
         </div>
     </section>
 
     <section class="filters-container">
         <span class="filter-label">Filtrar por categoría:</span>
         <div class="filters">
-            <button class="btn-filter active" data-filter="all">Todas</button>
-            <button class="btn-filter" data-filter="engranajes">Engranajes</button>
-            <button class="btn-filter" data-filter="soportes">Soportes</button>
-            <button class="btn-filter" data-filter="carcasas">Carcasas</button>
+            <button class="btn-filter active" data-filter="all">
+                <i data-lucide="layout-grid"></i> Todas
+            </button>
+            <button class="btn-filter" data-filter="engranajes">
+                <i data-lucide="settings"></i> Engranajes
+            </button>
+            <button class="btn-filter" data-filter="soportes">
+                <i data-lucide="wrench"></i> Soportes
+            </button>
+            <button class="btn-filter" data-filter="carcasas">
+                <i data-lucide="box"></i> Carcasas
+            </button>
         </div>
+        <span class="filter-count" id="parte-contador">6 piezas</span>
     </section>
 
     <section id="catalogo" class="catalog-section">
         <div class="grid" id="catalog-grid">
-            
-            <div class="card item engranajes" data-status="desarrollo">
-                <div class="card-header">
-                    <i data-lucide="settings" class="card-icon"></i>
-                    <span class="part-id">#001</span>
-                </div>
-                <h3>Engranaje Helicoidal</h3>
-                <p>Pieza mecánica de transmisión de potencia de alta resistencia.</p>
-                <span class="tag tag-dev">En desarrollo</span>
-            </div>
-
-            <div class="card item soportes" data-status="finalizado">
-                <div class="card-header">
-                    <i data-lucide="wrench" class="card-icon"></i>
-                    <span class="part-id">#002</span>
-                </div>
-                <h3>Soporte Motor NEMA</h3>
-                <p>Soporte estructural reforzado para motores paso a paso estructurales.</p>
-                <span class="tag tag-ok">Finalizado</span>
-            </div>
-
-            <div class="card item carcasas" data-status="desarrollo">
-                <div class="card-header">
-                    <i data-lucide="box" class="card-icon"></i>
-                    <span class="part-id">#003</span>
-                </div>
-                <h3>Carcasa Reductora</h3>
-                <p>Protección modular estanca para alojamiento de mecanismos internos.</p>
-                <span class="tag tag-dev">En desarrollo</span>
-            </div>
-
+            <!-- Cards generadas por JS -->
         </div>
         <div id="no-results" class="no-results hidden">
-            <i data-lucide="alert-circle"></i>
+            <i data-lucide="search-x"></i>
             <p>No se encontraron piezas que coincidan.</p>
+            <span>Intenta con otro término o categoría</span>
         </div>
     </section>
 
@@ -109,9 +108,13 @@
                 </div>
                 <pre><code>📦 biblioteca-piezas-3d
 ├── 📂 piezas/       <span class="code-comment"># Archivos .STL y .STEP</span>
+│   ├── engranajes/
+│   ├── soportes/
+│   └── carcasas/
 ├── 📂 docs/         <span class="code-comment"># Planos técnicos en PDF</span>
 ├── 📂 plantillas/   <span class="code-comment"># Impresión y mecanizado</span>
-└── 📂 imagenes/     <span class="code-comment"># Renders y capturas</span></code></pre>
+├── 📂 imagenes/     <span class="code-comment"># Renders y capturas</span>
+└── 📄 index.html    <span class="code-comment"># Catálogo digital</span></code></pre>
             </div>
         </section>
 
@@ -130,21 +133,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><code>001</code></td>
-                            <td class="font-medium">Engranaje Helicoidal</td>
-                            <td><span class="status-indicator dev">Desarrollo</span></td>
-                        </tr>
-                        <tr>
-                            <td><code>002</code></td>
-                            <td class="font-medium">Soporte Motor NEMA</td>
-                            <td><span class="status-indicator ok">Producción</span></td>
-                        </tr>
-                        <tr>
-                            <td><code>003</code></td>
-                            <td class="font-medium">Carcasa Reductora</td>
-                            <td><span class="status-indicator dev">Desarrollo</span></td>
-                        </tr>
+                        <!-- Generado dinámicamente por JS -->
                     </tbody>
                 </table>
             </div>
@@ -154,13 +143,18 @@
 
 <footer>
     <div class="footer-content">
-        <div><i data-lucide="factory" style="vertical-align: middle; margin-right: 5px;"></i> Mantenimiento Electromecánico &copy; 2026</div>
-        <div class="version-tag">v2.3.0</div>
+        <div class="footer-left">
+            <i data-lucide="factory" class="footer-icon"></i>
+            Mantenimiento Electromecánico &copy; 2026
+        </div>
+        <div class="footer-right">
+            <span class="version-tag">v2.4.0</span>
+            <span class="footer-sep">·</span>
+            <span>HTML / CSS / JS</span>
+        </div>
     </div>
 </footer>
 
-<script>
-    lucide.createIcons();
-</script>
+<script>lucide.createIcons();</script>
 </body>
 </html>
