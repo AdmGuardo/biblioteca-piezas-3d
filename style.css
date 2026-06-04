@@ -67,6 +67,7 @@ body {
 /* ---- LOGO ---- */
 .custom-logo {
     height: 28px;
+    height: 44px;
     width: auto;
     object-fit: contain;
     filter: drop-shadow(0 0 6px var(--accent-glow));
