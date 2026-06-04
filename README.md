@@ -1,27 +1,65 @@
-# Biblioteca de Piezas 3D para Electromecánica
+# 🔧 Biblioteca de Piezas 3D para Mantenimiento Electromecánico
 
-Repositorio colaborativo de piezas impresas en 3D para proyectos de electromecánica.
+Repositorio colaborativo destinado a la recopilación, documentación y conservación de piezas diseñadas e impresas en 3D para proyectos de **Mantenimiento Electromecánico**.
 
-Incluye modelos CAD, archivos STL, documentación técnica y recursos desarrollados por alumnos y profesores.
+---
 
-## Objetivos
+## 🌐 Catálogo Web
 
-- Compartir diseños reutilizables.
-- Facilitar el aprendizaje de impresión 3D.
-- Conservar proyectos desarrollados por alumnos.
-- Crear una biblioteca técnica para futuras promociones.
+La biblioteca puede consultarse a través de la página web del proyecto (GitHub Pages).
 
-## Estructura
+---
 
-- `piezas/` Modelos desarrollados por alumnos.
-- `plantillas/` Plantillas y guías.
-- `docs/` Documentación general.
-- `imagenes/` Recursos gráficos.
-- `normas/` Normas de uso del repositorio.
+## 📖 Descripción
 
-## Cómo participar
+Este proyecto reúne modelos CAD, archivos STL, documentación técnica, planos y recursos educativos desarrollados por alumnos y profesores.
 
-Consulta la documentación disponible en:
+Su objetivo es crear una biblioteca técnica reutilizable que permita conservar y reutilizar proyectos del ciclo formativo de Mantenimiento Electromecánico.
 
-- `plantillas/README.md`
-- `normas/README.md`
+---
+
+## 🎯 Objetivos
+
+- ♻️ Compartir diseños reutilizables  
+- 🎓 Facilitar el aprendizaje del diseño e impresión 3D  
+- 💾 Conservar proyectos desarrollados por el alumnado  
+- 🛠️ Fomentar la innovación técnica  
+- 🤝 Promover la colaboración entre alumnos y profesores  
+
+---
+
+## 📂 Estructura del repositorio
+
+```bash
+biblioteca-piezas-3d/
+│
+├── piezas/
+├── plantillas/
+├── docs/
+├── imagenes/
+└── normas/
+```
+
+---
+
+## 📦 Estado del proyecto
+
+| Nº  | Pieza      | Estado        |
+|-----|------------|--------------|
+| 001 | Engranajes | En desarrollo |
+
+---
+
+## 👥 Cómo participar
+
+1. Crear una carpeta dentro de `piezas/`
+2. Copiar la plantilla de `plantillas/ficha-pieza.md`
+3. Añadir archivos STL, F3D, imágenes y planos
+4. Realizar un commit con un mensaje descriptivo
+
+---
+
+## 🏫 Departamento
+
+**Mantenimiento Electromecánico**  
+Curso 2024-2025
