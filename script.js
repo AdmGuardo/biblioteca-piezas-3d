@@ -1,727 +1,210 @@
-/* =============================================
-   TECH 3D LIBRARY — style.css
-   Modo Oscuro Industrial (default) + Modo Claro
-   ============================================= */
-
-:root {
-    --bg-main:      #0d1017;
-    --bg-panel:     #141920;
-    --bg-input:     #1a2030;
-    --bg-card:      #161c26;
-    --border-color: #242f42;
-    --border-light: #1e2a3d;
-    --text-main:    #e8eaf0;
-    --text-muted:   #8a95a8;
-    --text-dim:     #4d5a6e;
-    --accent:       #3b82f6;
-    --accent-glow:  rgba(59, 130, 246, 0.15);
-    --success:      #10b981;
-    --warning:      #f59e0b;
-    --info:         #6366f1;
-    --code-bg:      #0a0d13;
-    --table-header: #0e1118;
-    --shadow:       0 4px 24px rgba(0,0,0,0.4);
-    --shadow-sm:    0 2px 8px rgba(0,0,0,0.3);
-    --radius:       14px;
-    --radius-sm:    8px;
-}
-
-[data-theme="light"] {
-    --bg-main:      #f0f2f7;
-    --bg-panel:     #ffffff;
-    --bg-input:     #ffffff;
-    --bg-card:      #ffffff;
-    --border-color: #dde1ea;
-    --border-light: #e8ebf2;
-    --text-main:    #1a2035;
-    --text-muted:   #5a6478;
-    --text-dim:     #9aa0ad;
-    --accent:       #2563eb;
-    --accent-glow:  rgba(37, 99, 235, 0.08);
-    --success:      #059669;
-    --warning:      #d97706;
-    --info:         #4f46e5;
-    --code-bg:      #f6f8fc;
-    --table-header: #f0f2f7;
-    --shadow:       0 4px 24px rgba(0,0,0,0.08);
-    --shadow-sm:    0 2px 8px rgba(0,0,0,0.06);
-}
-
-/* ---- RESET ---- */
-*, *::before, *::after {
-    margin: 0; padding: 0;
-    box-sizing: border-box;
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-    background: var(--bg-main);
-    color: var(--text-main);
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-    transition: background 0.3s, color 0.3s;
-    min-height: 100vh;
-}
-
-/* ---- LOGO ---- */
-.custom-logo {
-    height: 28px;
-    width: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 0 6px var(--accent-glow));
-}
-
-/* ---- NAVBAR ---- */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 20px;
-    background: var(--bg-panel);
-    border-bottom: 1px solid var(--border-color);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    font-weight: 700;
-    font-size: 1.05rem;
-    letter-spacing: -0.3px;
-}
-
-.text-light { font-weight: 300; color: var(--text-muted); }
-
-.nav-actions { display: flex; align-items: center; gap: 8px; }
-
-.btn-icon {
-    background: transparent;
-    border: 1px solid var(--border-color);
-    color: var(--text-muted);
-    padding: 8px;
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: border-color 0.2s, color 0.2s, background 0.2s;
-}
-
-.btn-icon:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: var(--accent-glow);
-}
-
-.btn-icon svg { width: 18px; height: 18px; }
-
-/* Menú desplegable móvil */
-.nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: var(--bg-panel);
-    border-bottom: 1px solid var(--border-color);
-    padding: 16px 20px;
-    gap: 4px;
-    box-shadow: var(--shadow);
-}
-
-.nav-links.open { display: flex; }
-
-.nav-link {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 12px;
-    border-radius: var(--radius-sm);
-    transition: color 0.2s, background 0.2s;
-}
-
-.nav-link svg { width: 16px; height: 16px; }
-
-.nav-link:hover, .nav-link.active {
-    color: var(--accent);
-    background: var(--accent-glow);
-}
-
-/* Tema icons toggle */
-[data-theme="light"] .sun-icon,
-:root:not([data-theme="light"]) .moon-icon { display: none; }
-
-/* ---- MAIN ---- */
-main {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 20px 16px 40px;
-}
-
-/* ---- HERO ---- */
-.hero {
-    padding: 56px 10px 40px;
-    text-align: center;
-}
-
-.hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--accent);
-    background: var(--accent-glow);
-    border: 1px solid rgba(59,130,246,0.2);
-    padding: 5px 12px;
-    border-radius: 20px;
-    margin-bottom: 18px;
-}
-
-.hero-badge svg { width: 13px; height: 13px; }
-
-.hero h1 {
-    font-size: clamp(1.8rem, 5vw, 3rem);
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    line-height: 1.2;
-    margin-bottom: 12px;
-}
-
-.accent-text { color: var(--accent); }
-
-.subtitle {
-    color: var(--text-muted);
-    font-size: 1rem;
-    margin-bottom: 28px;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Buscador */
-.search-container {
-    position: relative;
-    max-width: 480px;
-    margin: 0 auto 32px;
-}
-
-.search-icon {
-    position: absolute;
-    left: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-muted);
-    width: 18px;
-    height: 18px;
-}
-
-#search {
-    width: 100%;
-    padding: 13px 50px 13px 42px;
-    background: var(--bg-input);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    color: var(--text-main);
-    font-size: 0.95rem;
-    outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-#search:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px var(--accent-glow);
-}
-
-#search::placeholder { color: var(--text-muted); }
-
-.search-kbd {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 0.7rem;
-    color: var(--text-dim);
-    background: var(--bg-main);
-    border: 1px solid var(--border-color);
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-family: 'Fira Code', monospace;
-}
-
-/* Stats del hero */
-.hero-stats {
-    display: inline-flex;
-    align-items: center;
-    gap: 20px;
-    background: var(--bg-panel);
-    border: 1px solid var(--border-color);
-    padding: 14px 28px;
-    border-radius: 50px;
-    box-shadow: var(--shadow-sm);
-}
-
-.stat-item { text-align: center; }
-
-.stat-num {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: 700;
-    font-family: 'Fira Code', monospace;
-    color: var(--accent);
-    line-height: 1;
-}
-
-.stat-label {
-    font-size: 0.72rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.stat-divider {
-    width: 1px;
-    height: 36px;
-    background: var(--border-color);
-}
-
-/* ---- FILTROS ---- */
-.filters-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 24px;
-}
-
-.filter-label {
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    font-weight: 500;
-    white-space: nowrap;
-}
-
-.filters {
-    display: flex;
-    gap: 6px;
-    overflow-x: auto;
-    padding: 2px;
-    flex: 1;
-    scrollbar-width: none;
-}
-
-.filters::-webkit-scrollbar { display: none; }
-
-.btn-filter {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 7px 14px;
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    background: var(--bg-panel);
-    color: var(--text-muted);
-    font-size: 0.83rem;
-    font-weight: 500;
-    white-space: nowrap;
-    transition: all 0.2s;
-}
-
-.btn-filter svg { width: 14px; height: 14px; }
-
-.btn-filter:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: var(--accent-glow);
-}
-
-.btn-filter.active {
-    background: var(--accent);
-    color: white;
-    border-color: var(--accent);
-    box-shadow: 0 2px 8px rgba(59,130,246,0.3);
-}
-
-.filter-count {
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    font-family: 'Fira Code', monospace;
-    background: var(--bg-panel);
-    border: 1px solid var(--border-color);
-    padding: 4px 10px;
-    border-radius: 20px;
-    white-space: nowrap;
-    margin-left: auto;
-}
-
-/* ---- CARDS GRID ---- */
-.grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin-bottom: 30px;
-}
-
-.card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    padding: 20px;
-    border-radius: var(--radius);
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    cursor: default;
-    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-    animation: fadeInUp 0.35s ease both;
-    position: relative;
-    overflow: hidden;
-}
-
-.card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent), transparent);
-    opacity: 0;
-    transition: opacity 0.2s;
-}
-
-.card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow);
-    border-color: var(--border-light);
-}
-
-.card:hover::before { opacity: 1; }
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(12px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-}
-
-.card-icon {
-    width: 22px;
-    height: 22px;
-    color: var(--accent);
-}
-
-.card-meta {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.part-id {
-    font-family: 'Fira Code', monospace;
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    background: rgba(128,128,128,0.08);
-    padding: 2px 8px;
-    border-radius: 4px;
-    border: 1px solid var(--border-color);
-}
-
-.revision-tag {
-    font-family: 'Fira Code', monospace;
-    font-size: 0.7rem;
-    color: var(--info);
-    background: rgba(99, 102, 241, 0.1);
-    padding: 2px 6px;
-    border-radius: 4px;
-}
-
-.card h3 {
-    font-size: 1.05rem;
-    font-weight: 600;
-    margin-bottom: 6px;
-    line-height: 1.3;
-}
-
-.card p {
-    color: var(--text-muted);
-    font-size: 0.875rem;
-    margin-bottom: 14px;
-    line-height: 1.5;
-    flex: 1;
-}
-
-.card-specs {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 14px;
-    flex-wrap: wrap;
-}
-
-.spec-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    background: rgba(128,128,128,0.05);
-    border: 1px solid var(--border-color);
-    padding: 3px 8px;
-    border-radius: 5px;
-}
-
-.spec-icon {
-    width: 12px;
-    height: 12px;
-    color: var(--text-dim);
-}
-
-.tag {
-    align-self: flex-start;
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-}
-
-.tag-dev { background: rgba(245, 158, 11, 0.12); color: var(--warning); border: 1px solid rgba(245,158,11,0.2); }
-.tag-ok  { background: rgba(16, 185, 129, 0.12); color: var(--success); border: 1px solid rgba(16,185,129,0.2); }
-.tag-rev { background: rgba(99, 102, 241, 0.12); color: var(--info);    border: 1px solid rgba(99,102,241,0.2); }
-
-/* Sin resultados */
-.no-results {
-    text-align: center;
-    padding: 50px 20px;
-    color: var(--text-muted);
-}
-
-.no-results svg { width: 48px; height: 48px; margin-bottom: 12px; opacity: 0.4; }
-.no-results p { font-size: 1rem; font-weight: 500; margin-bottom: 4px; }
-.no-results span { font-size: 0.85rem; color: var(--text-dim); }
-
-/* ---- SECCIONES INFERIORES ---- */
-.sections-split {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 10px;
-}
-
-.panel-section {
-    background: var(--bg-panel);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius);
-    padding: 22px;
-}
-
-.panel-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 16px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.panel-header h2 { font-size: 1.1rem; font-weight: 600; }
-
-.icon-blue { color: var(--accent); width: 20px; height: 20px; }
-
-/* Code window */
-.code-window, .table-container {
-    background: var(--code-bg);
-    border-radius: 10px;
-    border: 1px solid var(--border-color);
-    overflow-x: auto;
-}
-
-.window-header {
-    background: var(--table-header);
-    padding: 8px 14px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.dot { width: 10px; height: 10px; border-radius: 50%; }
-.dot.red    { background: #ef4444; }
-.dot.yellow { background: #f59e0b; }
-.dot.green  { background: #10b981; }
-
-.window-title {
-    font-family: 'Fira Code', monospace;
-    font-size: 0.7rem;
-    color: var(--text-muted);
-    margin-left: 6px;
-}
-
-pre { padding: 16px; }
-code {
-    font-family: 'Fira Code', monospace;
-    font-size: 0.83rem;
-    line-height: 1.7;
-}
-.code-comment { color: #4b5563; font-style: italic; }
-
-/* Tabla */
-.tech-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
-    font-size: 0.85rem;
-    min-width: 380px;
-}
-
-.tech-table th {
-    background: var(--table-header);
-    padding: 10px 14px;
-    color: var(--text-muted);
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-weight: 600;
-}
-
-.tech-table td {
-    padding: 12px 14px;
-    border-bottom: 1px solid var(--border-color);
-    transition: background 0.15s;
-}
-
-.tech-table tbody tr:hover td {
-    background: rgba(59,130,246,0.04);
-}
-
-.tech-table tbody tr:last-child td { border-bottom: none; }
-
-.font-medium { font-weight: 500; }
-
-.status-indicator {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.8rem;
-    font-weight: 500;
-}
-
-.status-indicator::before {
-    content: '';
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    flex-shrink: 0;
-}
-
-.status-indicator.ok::before  { background: var(--success); box-shadow: 0 0 5px var(--success); }
-.status-indicator.dev::before { background: var(--warning); box-shadow: 0 0 5px var(--warning); }
-.status-indicator.rev::before { background: var(--info);    box-shadow: 0 0 5px var(--info); }
-
-/* ---- FOOTER ---- */
-footer {
-    border-top: 1px solid var(--border-color);
-    background: var(--bg-panel);
-    padding: 20px;
-    margin-top: 20px;
-}
-
-.footer-content {
-    max-width: 1300px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    text-align: center;
-    font-size: 0.83rem;
-    color: var(--text-muted);
-}
-
-.footer-left {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.footer-icon { width: 16px; height: 16px; }
-
-.footer-right {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.footer-sep { color: var(--border-color); }
-
-.version-tag {
-    font-family: 'Fira Code', monospace;
-    font-size: 0.75rem;
-    background: var(--bg-main);
-    border: 1px solid var(--border-color);
-    padding: 2px 8px;
-    border-radius: 4px;
-    color: var(--accent);
-}
-
-/* ---- UTILS ---- */
-.hidden { display: none !important; }
-
-/* ---- RESPONSIVE: TABLET / DESKTOP ---- */
-@media (min-width: 640px) {
-    .grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (min-width: 768px) {
-    .navbar { padding: 14px 40px; }
-    .logo { font-size: 1.15rem; }
-    .burger-menu { display: none; }
-
-    .nav-links {
-        display: flex;
-        flex-direction: row;
-        position: static;
-        width: auto;
-        background: transparent;
-        border: none;
-        padding: 0;
-        gap: 4px;
-        box-shadow: none;
+// =============================================
+// TECH 3D — Temario Electromecánica
+// =============================================
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    // --- TEMA ---
+    const themeToggle = document.getElementById('theme-toggle');
+    const saved = localStorage.getItem('theme') || 'dark';
+    if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
+
+    themeToggle.addEventListener('click', () => {
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
+        localStorage.setItem('theme', isLight ? 'dark' : 'light');
+    });
+
+    // --- MENÚ HAMBURGUESA ---
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu   = document.getElementById('nav-menu');
+    const menuIcon  = menuToggle.querySelector('.menu-icon');
+    const closeIcon = menuToggle.querySelector('.close-icon');
+
+    menuToggle.addEventListener('click', () => {
+        const open = navMenu.classList.toggle('open');
+        menuIcon.classList.toggle('hidden', open);
+        closeIcon.classList.toggle('hidden', !open);
+    });
+
+    document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+    }));
+
+    // --- DATOS DEL TEMARIO ---
+    const temas = [
+        {
+            id: '01',
+            nombre: 'Engranaje Helicoidal',
+            descripcion: 'Aprende a modelar dientes helicoidales y calcular la relación de transmisión entre dos ejes paralelos.',
+            unidad: 'Unidad 1',
+            categoria: 'engranajes',
+            icono: 'settings',
+            nivel: 'Intermedio',
+            nivelCls: 'nivel-medio',
+            horas: '2h',
+            material: 'Acero AISI 4140',
+            objetivos: ['Dibujar perfil de diente', 'Calcular módulo', 'Exportar STL']
+        },
+        {
+            id: '02',
+            nombre: 'Soporte Motor NEMA',
+            descripcion: 'Diseño de soportes para motores paso a paso: tolerancias, agujeros de montaje y rigidez estructural.',
+            unidad: 'Unidad 2',
+            categoria: 'soportes',
+            icono: 'wrench',
+            nivel: 'Básico',
+            nivelCls: 'nivel-bajo',
+            horas: '1.5h',
+            material: 'Aluminio 6061',
+            objetivos: ['Dimensionar agujeros', 'Aplicar tolerancias', 'Verificar rigidez']
+        },
+        {
+            id: '03',
+            nombre: 'Carcasa Reductora',
+            descripcion: 'Modelado de carcasas modulares con sellado estanco para alojar transmisiones internas.',
+            unidad: 'Unidad 3',
+            categoria: 'carcasas',
+            icono: 'box',
+            nivel: 'Avanzado',
+            nivelCls: 'nivel-alto',
+            horas: '3h',
+            material: 'PLA+ / ABS',
+            objetivos: ['Diseñar tapa modular', 'Calcular paredes', 'Roscas y juntas']
+        },
+        {
+            id: '04',
+            nombre: 'Piñón Recto 32T',
+            descripcion: 'Fundamentos del diseño de engranajes rectos: número de dientes, paso y presión de contacto.',
+            unidad: 'Unidad 1',
+            categoria: 'engranajes',
+            icono: 'cog',
+            nivel: 'Básico',
+            nivelCls: 'nivel-bajo',
+            horas: '1.5h',
+            material: 'Nylon PA6',
+            objetivos: ['Calcular módulo y paso', 'Modelar con parámetros', 'Simular engrane']
+        },
+        {
+            id: '05',
+            nombre: 'Soporte Rodamiento SKF',
+            descripcion: 'Alojamientos de precisión para rodamientos: ajustes, interferencias y análisis de carga radial.',
+            unidad: 'Unidad 2',
+            categoria: 'soportes',
+            icono: 'anchor',
+            nivel: 'Intermedio',
+            nivelCls: 'nivel-medio',
+            horas: '2h',
+            material: 'Acero St-37',
+            objetivos: ['Calcular ajuste H7/p6', 'Modelar asiento', 'Verificar carga']
+        },
+        {
+            id: '06',
+            nombre: 'Carcasa Electrónica IP65',
+            descripcion: 'Diseño de cajas de protección para electrónica: grado IP, guías de PCB y gestión térmica básica.',
+            unidad: 'Unidad 3',
+            categoria: 'carcasas',
+            icono: 'shield',
+            nivel: 'Intermedio',
+            nivelCls: 'nivel-medio',
+            horas: '2h',
+            material: 'ABS Ignífugo',
+            objetivos: ['Diseñar juntas IP65', 'Guías para PCB', 'Ventilación pasiva']
+        }
+    ];
+
+    // --- RENDER CARDS ---
+    const grid      = document.getElementById('catalog-grid');
+    const noResults = document.getElementById('no-results');
+    const contador  = document.getElementById('parte-contador');
+
+    function renderCards(lista) {
+        grid.innerHTML = '';
+        noResults.classList.toggle('hidden', lista.length > 0);
+        if (contador) contador.textContent = `${lista.length} tema${lista.length !== 1 ? 's' : ''}`;
+        if (!lista.length) return;
+
+        lista.forEach((t, i) => {
+            const card = document.createElement('div');
+            card.className = `card item ${t.categoria}`;
+            card.style.animationDelay = `${i * 60}ms`;
+            card.innerHTML = `
+                <div class="card-top">
+                    <div class="card-unidad">${t.unidad}</div>
+                    <span class="nivel-tag ${t.nivelCls}">${t.nivel}</span>
+                </div>
+                <div class="card-icon-wrap">
+                    <i data-lucide="${t.icono}" class="card-main-icon"></i>
+                </div>
+                <div class="card-num">#${t.id}</div>
+                <h3>${t.nombre}</h3>
+                <p>${t.descripcion}</p>
+                <ul class="objetivos-list">
+                    ${t.objetivos.map(o => `<li><i data-lucide="check" class="obj-check"></i>${o}</li>`).join('')}
+                </ul>
+                <div class="card-footer">
+                    <span class="card-meta-item"><i data-lucide="clock" class="meta-icon"></i>${t.horas}</span>
+                    <span class="card-meta-item"><i data-lucide="layers" class="meta-icon"></i>${t.material}</span>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+
+        if (window.lucide) lucide.createIcons();
     }
 
-    .nav-link { font-size: 0.9rem; padding: 6px 10px; }
+    // --- FILTROS Y BÚSQUEDA ---
+    const searchInput = document.getElementById('search');
+    const filterBtns  = document.querySelectorAll('.btn-filter');
+    let filtroActivo = 'all';
+    let busqueda = '';
 
-    .sections-split {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 24px;
+    function aplicar() {
+        const res = temas.filter(t => {
+            const cat = filtroActivo === 'all' || t.categoria === filtroActivo;
+            const q   = busqueda === '' ||
+                t.nombre.toLowerCase().includes(busqueda) ||
+                t.descripcion.toLowerCase().includes(busqueda) ||
+                t.unidad.toLowerCase().includes(busqueda) ||
+                t.nivel.toLowerCase().includes(busqueda) ||
+                t.material.toLowerCase().includes(busqueda);
+            return cat && q;
+        });
+        renderCards(res);
     }
 
-    .footer-content {
-        flex-direction: row;
-        justify-content: space-between;
-        text-align: left;
-    }
-}
+    searchInput.addEventListener('input', e => { busqueda = e.target.value.toLowerCase().trim(); aplicar(); });
 
-@media (min-width: 1024px) {
-    .grid { grid-template-columns: repeat(3, 1fr); }
-}
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            filtroActivo = btn.dataset.filter;
+            aplicar();
+        });
+    });
+
+    // --- TABLA ESTADO ---
+    const tbody = document.querySelector('.tech-table tbody');
+    if (tbody) {
+        tbody.innerHTML = temas.map(t => `
+            <tr>
+                <td><code>${t.unidad}</code></td>
+                <td class="font-medium">${t.nombre}</td>
+                <td><span class="nivel-dot ${t.nivelCls}">${t.nivel}</span></td>
+            </tr>
+        `).join('');
+    }
+
+    // --- CONTADOR ANIMADO ---
+    document.querySelectorAll('.stat-num').forEach(el => {
+        const fin = parseInt(el.dataset.val);
+        let n = 0;
+        const t = setInterval(() => { el.textContent = ++n; if (n >= fin) clearInterval(t); }, 800 / fin);
+    });
+
+    // --- RENDER INICIAL ---
+    aplicar();
+});
