@@ -3,13 +3,40 @@ document.addEventListener("DOMContentLoaded", () => {
     const filterButtons = document.querySelectorAll(".btn-filter");
     const items = document.querySelectorAll(".item");
     const noResults = document.getElementById("no-results");
+    
+    // Elementos del menú hamburguesa y tema
     const themeToggle = document.getElementById("theme-toggle");
+    const menuToggle = document.getElementById("menu-toggle");
+    const navMenu = document.getElementById("nav-menu");
+    const menuIcon = document.querySelector(".menu-icon");
+    const closeIcon = document.querySelector(".close-icon");
+    const navLinks = document.querySelectorAll(".nav-link");
 
     let activeFilter = "all";
     let searchText = "";
 
+    // --- MENÚ HAMBURGUESA ---
+    function toggleMenu() {
+        navMenu.classList.toggle("open");
+        menuIcon.classList.toggle("hidden");
+        closeIcon.classList.toggle("hidden");
+    }
+
+    menuToggle.addEventListener("click", toggleMenu);
+
+    // Cerrar el menú al hacer clic en un enlace de navegación (útil en móviles)
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            if (navMenu.classList.contains("open")) {
+                toggleMenu();
+            }
+            // Cambiar clase activa visual
+            navLinks.forEach(l => l.classList.remove("active"));
+            link.classList.add("active");
+        });
+    });
+
     // --- SISTEMA MODO CLARO / OSCURO ---
-    // Comprobar preferencia previa o sistema operativo
     const savedTheme = localStorage.getItem("theme");
     const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
     
@@ -17,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.documentElement.setAttribute("data-theme", "light");
     }
 
-    // Evento de clic para alternar el tema
     themeToggle.addEventListener("click", () => {
         const currentTheme = document.documentElement.getAttribute("data-theme");
         if (currentTheme === "light") {
@@ -29,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // --- MOTOR DE FILTRADO Y BÚSQUEDA ---
+    // --- FILTRADO Y BÚSQUEDA ---
     function applyFilters() {
         let visibleCount = 0;
 
