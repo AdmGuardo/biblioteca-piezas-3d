@@ -1,6 +1,6 @@
 # Imágenes
 
-Esta carpeta contiene imágenes generales del proyecto y recursos gráficos utilizados en la documentación.
+Recursos gráficos utilizados por el proyecto.
 
 ## Formatos recomendados
 
@@ -11,13 +11,5 @@ Esta carpeta contiene imágenes generales del proyecto y recursos gráficos util
 ## Recomendaciones
 
 - Utilizar nombres descriptivos.
-- Mantener una resolución adecuada para su visualización.
+- Mantener una calidad adecuada.
 - Evitar espacios en los nombres de archivo.
-
-Ejemplos:
-
-```text
-soporte-motor.jpg
-carcasa-sensor.png
-proceso-impresion.webp
-```
