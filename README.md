@@ -1,42 +1,95 @@
-# Biblioteca de Piezas 3D para Mantenimiento Electromecánico
+<div align="center">
 
-Repositorio colaborativo destinado a la recopilación, documentación y conservación de piezas diseñadas e impresas en 3D para proyectos de **Mantenimiento Electromecánico**.
+# 🔧 Biblioteca de Piezas 3D para Mantenimiento Electromecánico
 
-Este espacio reúne modelos CAD, archivos STL, documentación técnica, planos, fotografías y recursos desarrollados por alumnos y profesores, con el objetivo de crear una biblioteca técnica reutilizable para futuras promociones.
+Repositorio colaborativo de piezas diseñadas e impresas en 3D para proyectos de mantenimiento electromecánico.
 
-## Objetivos
+*Modelos CAD • Archivos STL • Documentación técnica • Recursos didácticos*
 
-- Compartir diseños y recursos técnicos reutilizables.
-- Fomentar el aprendizaje del diseño e impresión 3D.
-- Conservar y documentar proyectos desarrollados por el alumnado.
-- Facilitar el acceso a material didáctico para actividades prácticas.
-- Crear una biblioteca técnica colaborativa para el ciclo formativo.
+</div>
 
-## Estructura del repositorio
+---
+
+## 📖 Descripción
+
+Esta biblioteca recopila piezas desarrolladas por alumnos y profesores con el objetivo de crear un catálogo técnico reutilizable para futuras promociones.
+
+Los recursos disponibles incluyen:
+
+- 🧩 Modelos CAD (Fusion 360)
+- 🖨️ Archivos STL listos para imprimir
+- 📐 Planos técnicos
+- 📷 Fotografías de las piezas
+- 📚 Documentación y manuales
+
+---
+
+## 🎯 Objetivos
+
+| | |
+|---|---|
+| ♻️ | Compartir diseños reutilizables |
+| 🎓 | Facilitar el aprendizaje de diseño e impresión 3D |
+| 💾 | Conservar proyectos desarrollados por el alumnado |
+| 🛠️ | Crear una biblioteca técnica para futuras promociones |
+| 🤝 | Fomentar la colaboración entre alumnos y profesores |
+
+---
+
+## 📂 Estructura del repositorio
+
+```text
+biblioteca-piezas-3d/
+│
+├── piezas/
+├── plantillas/
+├── docs/
+├── imagenes/
+└── normas/
+```
 
 | Carpeta | Descripción |
 |----------|-------------|
-| `piezas/` | Piezas y proyectos desarrollados por alumnos y profesores. |
-| `plantillas/` | Plantillas y guías para la incorporación de nuevas piezas. |
-| `docs/` | Documentación técnica, manuales y recursos de apoyo. |
-| `imagenes/` | Recursos gráficos e imágenes del proyecto. |
-| `normas/` | Normas de uso, organización y contribución al repositorio. |
+| 📦 `piezas/` | Piezas y proyectos desarrollados por alumnos y profesores |
+| 📝 `plantillas/` | Plantillas y guías para nuevas incorporaciones |
+| 📚 `docs/` | Documentación técnica y recursos de apoyo |
+| 🖼️ `imagenes/` | Recursos gráficos e imágenes del proyecto |
+| ⚖️ `normas/` | Normas de uso y contribución |
 
-## Cómo participar
+---
 
-Para añadir una nueva pieza o colaborar en el proyecto, consulta la documentación disponible en:
+## 🏗️ Piezas disponibles
+
+| Nº | Pieza | Estado |
+|----|--------|---------|
+| 001 | ⚙️ Engranajes | 🚧 En desarrollo |
+
+> A medida que se incorporen nuevos proyectos, esta tabla se actualizará con las piezas disponibles.
+
+---
+
+## 🤝 Cómo participar
+
+Para añadir una nueva pieza:
+
+1. 📁 Crear una carpeta dentro de `piezas/`
+2. 📋 Copiar la plantilla disponible en `plantillas/`
+3. 🖨️ Subir STL, F3D, fotografías y documentación
+4. 💾 Realizar un commit descriptivo
+
+Consulta:
 
 - `plantillas/README.md`
 - `normas/README.md`
 
-## Estado del proyecto
-
-| Nº | Pieza | Estado |
-|----|--------|---------|
-| 001 | Engranajes | En desarrollo |
-
 ---
 
-### Departamento de Mantenimiento Electromecánico
+<div align="center">
+
+### 🏫 Departamento de Mantenimiento Electromecánico
 
 **Curso 2024-2025**
+
+Repositorio educativo para la conservación y difusión de proyectos técnicos desarrollados por el alumnado.
+
+</div>
