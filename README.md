@@ -1,6 +1,6 @@
-# Biblioteca de Piezas 3D para Electromecánica
+# Biblioteca de Piezas 3D para Mantenimiento Electromecánico
 
-Repositorio colaborativo de piezas impresas en 3D para proyectos de electromecánica.
+Repositorio colaborativo de piezas impresas en 3D para proyectos de mantenimiento electromecánico.
 
 Incluye modelos CAD, archivos STL, documentación técnica y recursos desarrollados por alumnos y profesores.
 
