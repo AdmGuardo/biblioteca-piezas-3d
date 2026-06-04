@@ -1,6 +1,8 @@
 # Biblioteca de Piezas 3D para Electromecánica
 
-Repositorio colaborativo de piezas impresas en 3D desarrolladas por alumnos y profesores del Departamento de Electromecánica.
+Repositorio colaborativo de piezas impresas en 3D para proyectos de electromecánica.
+
+Incluye modelos CAD, archivos STL, documentación técnica y recursos desarrollados por alumnos y profesores.
 
 ## Objetivos
 
@@ -11,12 +13,15 @@ Repositorio colaborativo de piezas impresas en 3D desarrolladas por alumnos y pr
 
 ## Estructura
 
-- piezas/
-- plantillas/
-- docs/
-- imagenes/
-- normas/
+- `piezas/` Modelos desarrollados por alumnos.
+- `plantillas/` Plantillas y guías.
+- `docs/` Documentación general.
+- `imagenes/` Recursos gráficos.
+- `normas/` Normas de uso del repositorio.
 
 ## Cómo participar
 
-Consulta las instrucciones disponibles en las carpetas `plantillas` y `normas`.
+Consulta la documentación disponible en:
+
+- `plantillas/README.md`
+- `normas/README.md`
