@@ -2,45 +2,112 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Biblioteca 3D</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca 3D - Mantenimiento Electromecánico</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="hero">
-    <img src="imagenes/logo_biblioteca3D.png" alt="Logo">
+<header class="navbar">
+    <div class="logo">🔧 Biblioteca 3D</div>
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#descripcion">Descripción</a>
+        <a href="#objetivos">Objetivos</a>
+        <a href="#estructura">Estructura</a>
+        <a href="#estado">Estado</a>
+        <a href="#participar">Participar</a>
+    </nav>
+</header>
 
-    <div>
+<!-- HERO -->
+<section id="inicio" class="hero">
+    <div class="hero-content">
         <h1>Biblioteca de Piezas 3D</h1>
-        <h2>para Mantenimiento Electromecánico</h2>
+        <h2>Mantenimiento Electromecánico</h2>
 
         <p>
-            Repositorio colaborativo del Departamento de
-            Mantenimiento Electromecánico.
+            Repositorio colaborativo destinado a la recopilación, documentación y conservación de piezas diseñadas e impresas en 3D para proyectos de Mantenimiento Electromecánico.
+        </p>
+
+        <a class="btn" href="#catalogo">Ver catálogo</a>
+    </div>
+
+    <img src="imagenes/logo.png" alt="Logo">
+</section>
+
+<!-- CATÁLOGO -->
+<section id="catalogo" class="section">
+    <h2>🌐 Catálogo Web</h2>
+
+    <div class="card">
+        <p>
+            Puedes consultar la biblioteca en la web del proyecto aquí:
+        </p>
+
+        <a class="link" href="https://admguardo.github.io/biblioteca-piezas-3d/" target="_blank">
+            https://admguardo.github.io/biblioteca-piezas-3d/
+        </a>
+    </div>
+</section>
+
+<!-- DESCRIPCIÓN -->
+<section id="descripcion" class="section">
+    <h2>📖 Descripción</h2>
+
+    <div class="card">
+        <p>
+            Este proyecto reúne modelos CAD, archivos STL, documentación técnica, planos y recursos educativos desarrollados por alumnos y profesores.
+        </p>
+
+        <p>
+            Su objetivo es crear una biblioteca técnica reutilizable que permita conservar y reutilizar proyectos del ciclo formativo de Mantenimiento Electromecánico.
         </p>
     </div>
-</div>
+</section>
 
-<div class="card">
-    <h2>📂 Categorías</h2>
+<!-- OBJETIVOS -->
+<section id="objetivos" class="section">
+    <h2>🎯 Objetivos</h2>
 
-    <ul>
-        <li>⚙️ Engranajes</li>
-        <li>🔩 Soportes</li>
-        <li>📦 Carcasas</li>
-        <li>🔗 Acoplamientos</li>
-        <li>🎓 Proyectos didácticos</li>
-    </ul>
-</div>
+    <div class="grid">
+        <div class="card">♻️ Compartir diseños reutilizables</div>
+        <div class="card">🎓 Facilitar el aprendizaje del diseño 3D</div>
+        <div class="card">💾 Conservar proyectos del alumnado</div>
+        <div class="card">🛠️ Fomentar la innovación técnica</div>
+        <div class="card">🤝 Promover la colaboración</div>
+    </div>
+</section>
 
-<div class="card">
-    <h2>📦 Piezas disponibles</h2>
+<!-- ESTRUCTURA -->
+<section id="estructura" class="section">
+    <h2>📂 Estructura del repositorio</h2>
+
+    <div class="card code">
+<pre>
+biblioteca-piezas-3d/
+│
+├── piezas/
+├── plantillas/
+├── docs/
+├── imagenes/
+└── normas/
+</pre>
+    </div>
+</section>
+
+<!-- ESTADO -->
+<section id="estado" class="section">
+    <h2>📦 Estado del proyecto</h2>
 
     <table>
         <thead>
             <tr>
-                <th>Nº</th>
+                <th>Nº Pieza</th>
                 <th>Pieza</th>
                 <th>Estado</th>
             </tr>
@@ -54,16 +121,25 @@
             </tr>
         </tbody>
     </table>
-</div>
+</section>
 
-<div class="card">
+<!-- PARTICIPAR -->
+<section id="participar" class="section">
     <h2>👥 Cómo participar</h2>
-    <p>Consulta las normas y plantillas disponibles en el repositorio.</p>
-</div>
+
+    <div class="card">
+        <ol>
+            <li>Crear una carpeta dentro de <b>piezas/</b></li>
+            <li>Copiar la plantilla de <b>plantillas/ficha-pieza.md</b></li>
+            <li>Añadir archivos STL, F3D, imágenes y planos</li>
+            <li>Realizar un commit con un mensaje descriptivo</li>
+        </ol>
+    </div>
+</section>
 
 <footer>
-    <div>🏫 Departamento de Mantenimiento Electromecánico</div>
-    <div>📅 Curso 2024-2025</div>
+    <div>🏫 Mantenimiento Electromecánico</div>
+    <div>📅 Curso 2024–2025</div>
 </footer>
 
 </body>
