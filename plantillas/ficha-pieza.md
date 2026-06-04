@@ -2,7 +2,7 @@
 
 ## Autor
 
-Nombre y apellidos del alumno.
+Nombre y apellidos.
 
 ## Curso
 
@@ -10,31 +10,31 @@ Ejemplo: 2025-2026
 
 ## Profesor
 
-Nombre del profesor responsable.
+Profesor responsable.
 
 ## Descripción
 
-Breve explicación de la pieza y su funcionamiento.
+Descripción de la pieza.
 
 ## Material
 
-PLA, PETG, ABS u otro material utilizado.
+PLA, PETG, ABS u otro.
 
 ## Tiempo de impresión
 
-Tiempo estimado o real de impresión.
+Tiempo estimado o real.
 
 ## Aplicación
 
-Uso práctico de la pieza dentro de un proyecto o instalación.
+Uso práctico.
 
 ## Archivos incluidos
 
 - STL
-- F3D (Fusion 360)
+- F3D
 - Fotografías
-- Planos técnicos
+- Planos
 
 ## Observaciones
 
-Información adicional, mejoras futuras o recomendaciones de uso.
+Información adicional.
