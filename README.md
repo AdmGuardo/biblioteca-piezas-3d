@@ -1,38 +1,40 @@
 <div align="center">
 
-# 🔧 Biblioteca de Piezas 3D para Mantenimiento Electromecánico
+# 🔧 Biblioteca de Piezas 3D
+## para Mantenimiento Electromecánico
 
-Repositorio colaborativo de piezas diseñadas e impresas en 3D para proyectos de mantenimiento electromecánico.
+Repositorio colaborativo de piezas diseñadas e impresas en 3D para el aprendizaje, documentación y conservación de proyectos técnicos desarrollados por alumnos y profesores.
 
-*Modelos CAD • Archivos STL • Documentación técnica • Recursos didácticos*
+📐 **Fusion 360** • 🖨️ **Impresión 3D** • 📚 **Documentación Técnica** • 🎓 **Uso Educativo**
 
 </div>
 
 ---
 
-## 📖 Descripción
+## 🚀 Sobre el proyecto
 
-Esta biblioteca recopila piezas desarrolladas por alumnos y profesores con el objetivo de crear un catálogo técnico reutilizable para futuras promociones.
+Esta biblioteca nace con el objetivo de crear un repositorio técnico donde almacenar y compartir piezas diseñadas para el ciclo formativo de **Mantenimiento Electromecánico**.
 
-Los recursos disponibles incluyen:
+Cada proyecto incluye:
 
-- 🧩 Modelos CAD (Fusion 360)
+- 🧩 Modelos CAD originales
 - 🖨️ Archivos STL listos para imprimir
 - 📐 Planos técnicos
-- 📷 Fotografías de las piezas
-- 📚 Documentación y manuales
+- 📷 Fotografías
+- 📚 Documentación asociada
+- 🎓 Información educativa para futuras promociones
 
 ---
 
 ## 🎯 Objetivos
 
-| | |
-|---|---|
-| ♻️ | Compartir diseños reutilizables |
-| 🎓 | Facilitar el aprendizaje de diseño e impresión 3D |
-| 💾 | Conservar proyectos desarrollados por el alumnado |
-| 🛠️ | Crear una biblioteca técnica para futuras promociones |
-| 🤝 | Fomentar la colaboración entre alumnos y profesores |
+| Objetivo | Descripción |
+|-----------|-------------|
+| ♻️ Reutilización | Compartir diseños y recursos reutilizables |
+| 🎓 Aprendizaje | Facilitar la formación en diseño e impresión 3D |
+| 💾 Conservación | Mantener proyectos desarrollados por alumnos |
+| 🛠️ Innovación | Fomentar la creación de nuevas soluciones técnicas |
+| 🤝 Colaboración | Promover el trabajo conjunto entre alumnos y profesores |
 
 ---
 
@@ -48,48 +50,100 @@ biblioteca-piezas-3d/
 └── normas/
 ```
 
-| Carpeta | Descripción |
-|----------|-------------|
-| 📦 `piezas/` | Piezas y proyectos desarrollados por alumnos y profesores |
-| 📝 `plantillas/` | Plantillas y guías para nuevas incorporaciones |
-| 📚 `docs/` | Documentación técnica y recursos de apoyo |
-| 🖼️ `imagenes/` | Recursos gráficos e imágenes del proyecto |
+| Carpeta | Contenido |
+|----------|-----------|
+| 📦 `piezas/` | Piezas desarrolladas por alumnos y profesores |
+| 📝 `plantillas/` | Plantillas y fichas para nuevas piezas |
+| 📚 `docs/` | Documentación técnica y recursos |
+| 🖼️ `imagenes/` | Recursos gráficos y fotografías |
 | ⚖️ `normas/` | Normas de uso y contribución |
 
 ---
 
-## 🏗️ Piezas disponibles
+## ⚙️ Piezas disponibles
 
 | Nº | Pieza | Estado |
 |----|--------|---------|
 | 001 | ⚙️ Engranajes | 🚧 En desarrollo |
 
-> A medida que se incorporen nuevos proyectos, esta tabla se actualizará con las piezas disponibles.
+> Conforme se incorporen nuevos proyectos, esta tabla se actualizará automáticamente por los colaboradores.
 
 ---
 
 ## 🤝 Cómo participar
 
-Para añadir una nueva pieza:
+### 1️⃣ Crear una nueva pieza
 
-1. 📁 Crear una carpeta dentro de `piezas/`
-2. 📋 Copiar la plantilla disponible en `plantillas/`
-3. 🖨️ Subir STL, F3D, fotografías y documentación
-4. 💾 Realizar un commit descriptivo
+Crear una carpeta dentro de:
 
-Consulta:
+```text
+piezas/
+```
 
-- `plantillas/README.md`
-- `normas/README.md`
+Ejemplo:
+
+```text
+piezas/007-pinza-neumatica/
+```
+
+### 2️⃣ Copiar la plantilla
+
+Utilizar:
+
+```text
+plantillas/ficha-pieza.md
+```
+
+y renombrarla como:
+
+```text
+ficha.md
+```
+
+### 3️⃣ Añadir documentación
+
+Subir:
+
+- STL
+- F3D (Fusion 360)
+- Fotografías
+- Planos
+- Documentación adicional
+
+### 4️⃣ Realizar un commit
+
+Ejemplo:
+
+```text
+Añadida pieza 007 - Pinza neumática
+```
+
+---
+
+## 📊 Tecnologías utilizadas
+
+| Tecnología | Uso |
+|------------|-----|
+| Fusion 360 | Diseño CAD |
+| Impresión 3D | Fabricación de piezas |
+| GitHub | Gestión y almacenamiento |
+| GitHub Pages | Publicación web |
+| Markdown | Documentación |
+
+---
+
+## 🏫 Departamento de Mantenimiento Electromecánico
+
+Este proyecto tiene como finalidad conservar y difundir recursos técnicos desarrollados por el alumnado, facilitando su reutilización en futuras promociones y fomentando el aprendizaje colaborativo.
 
 ---
 
 <div align="center">
 
-### 🏫 Departamento de Mantenimiento Electromecánico
+### 📅 Curso 2024-2025
 
-**Curso 2024-2025**
+**Biblioteca de Piezas 3D para Mantenimiento Electromecánico**
 
-Repositorio educativo para la conservación y difusión de proyectos técnicos desarrollados por el alumnado.
+⚙️ Diseña • 🖨️ Imprime • 📚 Documenta • 🤝 Comparte
 
 </div>
