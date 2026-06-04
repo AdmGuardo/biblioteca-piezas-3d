@@ -1,256 +1,727 @@
-// =============================================
-// TECH 3D LIBRARY — script.js
-// =============================================
+/* =============================================
+   TECH 3D LIBRARY — style.css
+   Modo Oscuro Industrial (default) + Modo Claro
+   ============================================= */
 
-document.addEventListener('DOMContentLoaded', () => {
+:root {
+    --bg-main:      #0d1017;
+    --bg-panel:     #141920;
+    --bg-input:     #1a2030;
+    --bg-card:      #161c26;
+    --border-color: #242f42;
+    --border-light: #1e2a3d;
+    --text-main:    #e8eaf0;
+    --text-muted:   #8a95a8;
+    --text-dim:     #4d5a6e;
+    --accent:       #3b82f6;
+    --accent-glow:  rgba(59, 130, 246, 0.15);
+    --success:      #10b981;
+    --warning:      #f59e0b;
+    --info:         #6366f1;
+    --code-bg:      #0a0d13;
+    --table-header: #0e1118;
+    --shadow:       0 4px 24px rgba(0,0,0,0.4);
+    --shadow-sm:    0 2px 8px rgba(0,0,0,0.3);
+    --radius:       14px;
+    --radius-sm:    8px;
+}
 
-    // --- TEMA OSCURO / CLARO ---
-    const themeToggle = document.getElementById('theme-toggle');
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    if (savedTheme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+[data-theme="light"] {
+    --bg-main:      #f0f2f7;
+    --bg-panel:     #ffffff;
+    --bg-input:     #ffffff;
+    --bg-card:      #ffffff;
+    --border-color: #dde1ea;
+    --border-light: #e8ebf2;
+    --text-main:    #1a2035;
+    --text-muted:   #5a6478;
+    --text-dim:     #9aa0ad;
+    --accent:       #2563eb;
+    --accent-glow:  rgba(37, 99, 235, 0.08);
+    --success:      #059669;
+    --warning:      #d97706;
+    --info:         #4f46e5;
+    --code-bg:      #f6f8fc;
+    --table-header: #f0f2f7;
+    --shadow:       0 4px 24px rgba(0,0,0,0.08);
+    --shadow-sm:    0 2px 8px rgba(0,0,0,0.06);
+}
 
-    themeToggle.addEventListener('click', () => {
-        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-        document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
-        localStorage.setItem('theme', isLight ? 'dark' : 'light');
-    });
+/* ---- RESET ---- */
+*, *::before, *::after {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+}
 
-    // --- MENÚ HAMBURGUESA ---
-    const menuToggle = document.getElementById('menu-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    const menuIcon = menuToggle.querySelector('.menu-icon');
-    const closeIcon = menuToggle.querySelector('.close-icon');
+html { scroll-behavior: smooth; }
 
-    menuToggle.addEventListener('click', () => {
-        const isOpen = navMenu.classList.toggle('open');
-        menuIcon.classList.toggle('hidden', isOpen);
-        closeIcon.classList.toggle('hidden', !isOpen);
-    });
+body {
+    background: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
+    min-height: 100vh;
+}
 
-    // Cerrar menú al hacer click en un enlace
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('open');
-            menuIcon.classList.remove('hidden');
-            closeIcon.classList.add('hidden');
-        });
-    });
+/* ---- LOGO ---- */
+.custom-logo {
+    height: 28px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 6px var(--accent-glow));
+}
 
-    // --- ACTIVE NAV LINK EN SCROLL ---
-    const sections = document.querySelectorAll('section[id], div[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
+/* ---- NAVBAR ---- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background: var(--bg-panel);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                navLinks.forEach(link => {
-                    link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
-                });
-            }
-        });
-    }, { threshold: 0.4 });
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: -0.3px;
+}
 
-    sections.forEach(s => observer.observe(s));
+.text-light { font-weight: 300; color: var(--text-muted); }
 
-    // --- DATOS DE PIEZAS ---
-    const piezas = [
-        {
-            id: '001',
-            nombre: 'Engranaje Helicoidal',
-            descripcion: 'Pieza mecánica de transmisión de potencia de alta resistencia.',
-            categoria: 'engranajes',
-            estado: 'desarrollo',
-            icono: 'settings',
-            material: 'Acero AISI 4140',
-            peso: '1.24 kg',
-            revision: 'Rev. A'
-        },
-        {
-            id: '002',
-            nombre: 'Soporte Motor NEMA',
-            descripcion: 'Soporte estructural reforzado para motores paso a paso.',
-            categoria: 'soportes',
-            estado: 'finalizado',
-            icono: 'wrench',
-            material: 'Aluminio 6061',
-            peso: '0.87 kg',
-            revision: 'Rev. C'
-        },
-        {
-            id: '003',
-            nombre: 'Carcasa Reductora',
-            descripcion: 'Protección modular estanca para alojamiento de mecanismos internos.',
-            categoria: 'carcasas',
-            estado: 'desarrollo',
-            icono: 'box',
-            material: 'PLA+ / ABS',
-            peso: '0.45 kg',
-            revision: 'Rev. B'
-        },
-        {
-            id: '004',
-            nombre: 'Piñón Recto 32T',
-            descripcion: 'Engranaje recto de 32 dientes para transmisiones de baja velocidad.',
-            categoria: 'engranajes',
-            estado: 'finalizado',
-            icono: 'cog',
-            material: 'Nylon PA6',
-            peso: '0.31 kg',
-            revision: 'Rev. D'
-        },
-        {
-            id: '005',
-            nombre: 'Soporte Rodamiento SKF',
-            descripcion: 'Alojamiento de precisión para rodamientos SKF serie 6000.',
-            categoria: 'soportes',
-            estado: 'revision',
-            icono: 'anchor',
-            material: 'Acero St-37',
-            peso: '0.62 kg',
-            revision: 'Rev. A'
-        },
-        {
-            id: '006',
-            nombre: 'Carcasa Electrónica IP65',
-            descripcion: 'Caja de protección IP65 para electrónica de control industrial.',
-            categoria: 'carcasas',
-            estado: 'finalizado',
-            icono: 'shield',
-            material: 'ABS Ignífugo',
-            peso: '0.19 kg',
-            revision: 'Rev. E'
-        }
-    ];
+.nav-actions { display: flex; align-items: center; gap: 8px; }
 
-    const estadoConfig = {
-        finalizado: { label: 'Finalizado',   cls: 'tag-ok',  indicator: 'ok'  },
-        desarrollo: { label: 'En desarrollo', cls: 'tag-dev', indicator: 'dev' },
-        revision:   { label: 'En revisión',   cls: 'tag-rev', indicator: 'rev' }
-    };
+.btn-icon {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 8px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
 
-    // --- RENDER DE CARDS ---
-    const grid = document.getElementById('catalog-grid');
-    const noResults = document.getElementById('no-results');
-    const contador = document.getElementById('parte-contador');
+.btn-icon:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-glow);
+}
 
-    function renderCards(lista) {
-        grid.innerHTML = '';
+.btn-icon svg { width: 18px; height: 18px; }
 
-        if (lista.length === 0) {
-            noResults.classList.remove('hidden');
-            if (contador) contador.textContent = '0 piezas';
-            return;
-        }
+/* Menú desplegable móvil */
+.nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--bg-panel);
+    border-bottom: 1px solid var(--border-color);
+    padding: 16px 20px;
+    gap: 4px;
+    box-shadow: var(--shadow);
+}
 
-        noResults.classList.add('hidden');
-        if (contador) contador.textContent = `${lista.length} pieza${lista.length !== 1 ? 's' : ''}`;
+.nav-links.open { display: flex; }
 
-        lista.forEach((p, i) => {
-            const cfg = estadoConfig[p.estado] || estadoConfig.desarrollo;
-            const card = document.createElement('div');
-            card.className = `card item ${p.categoria}`;
-            card.dataset.status = p.estado;
-            card.style.animationDelay = `${i * 60}ms`;
-            card.innerHTML = `
-                <div class="card-header">
-                    <i data-lucide="${p.icono}" class="card-icon"></i>
-                    <div class="card-meta">
-                        <span class="part-id">#${p.id}</span>
-                        <span class="revision-tag">${p.revision}</span>
-                    </div>
-                </div>
-                <h3>${p.nombre}</h3>
-                <p>${p.descripcion}</p>
-                <div class="card-specs">
-                    <span class="spec-item"><i data-lucide="layers" class="spec-icon"></i>${p.material}</span>
-                    <span class="spec-item"><i data-lucide="scale" class="spec-icon"></i>${p.peso}</span>
-                </div>
-                <span class="tag ${cfg.cls}">${cfg.label}</span>
-            `;
-            grid.appendChild(card);
-        });
+.nav-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    transition: color 0.2s, background 0.2s;
+}
 
-        // Re-inicializar iconos de Lucide en las nuevas cards
-        if (window.lucide) lucide.createIcons();
+.nav-link svg { width: 16px; height: 16px; }
+
+.nav-link:hover, .nav-link.active {
+    color: var(--accent);
+    background: var(--accent-glow);
+}
+
+/* Tema icons toggle */
+[data-theme="light"] .sun-icon,
+:root:not([data-theme="light"]) .moon-icon { display: none; }
+
+/* ---- MAIN ---- */
+main {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px 16px 40px;
+}
+
+/* ---- HERO ---- */
+.hero {
+    padding: 56px 10px 40px;
+    text-align: center;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    background: var(--accent-glow);
+    border: 1px solid rgba(59,130,246,0.2);
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+}
+
+.hero-badge svg { width: 13px; height: 13px; }
+
+.hero h1 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.accent-text { color: var(--accent); }
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 28px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Buscador */
+.search-container {
+    position: relative;
+    max-width: 480px;
+    margin: 0 auto 32px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    width: 18px;
+    height: 18px;
+}
+
+#search {
+    width: 100%;
+    padding: 13px 50px 13px 42px;
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#search:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+#search::placeholder { color: var(--text-muted); }
+
+.search-kbd {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Fira Code', monospace;
+}
+
+/* Stats del hero */
+.hero-stats {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    background: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    padding: 14px 28px;
+    border-radius: 50px;
+    box-shadow: var(--shadow-sm);
+}
+
+.stat-item { text-align: center; }
+
+.stat-num {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Fira Code', monospace;
+    color: var(--accent);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 36px;
+    background: var(--border-color);
+}
+
+/* ---- FILTROS ---- */
+.filters-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.filter-label {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.filters {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 2px;
+    flex: 1;
+    scrollbar-width: none;
+}
+
+.filters::-webkit-scrollbar { display: none; }
+
+.btn-filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    background: var(--bg-panel);
+    color: var(--text-muted);
+    font-size: 0.83rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.btn-filter svg { width: 14px; height: 14px; }
+
+.btn-filter:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-glow);
+}
+
+.btn-filter.active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    box-shadow: 0 2px 8px rgba(59,130,246,0.3);
+}
+
+.filter-count {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-family: 'Fira Code', monospace;
+    background: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    margin-left: auto;
+}
+
+/* ---- CARDS GRID ---- */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    cursor: default;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    animation: fadeInUp 0.35s ease both;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+    border-color: var(--border-light);
+}
+
+.card:hover::before { opacity: 1; }
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.card-icon {
+    width: 22px;
+    height: 22px;
+    color: var(--accent);
+}
+
+.card-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.part-id {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    background: rgba(128,128,128,0.08);
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+.revision-tag {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.7rem;
+    color: var(--info);
+    background: rgba(99, 102, 241, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.card h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin-bottom: 14px;
+    line-height: 1.5;
+    flex: 1;
+}
+
+.card-specs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+}
+
+.spec-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    background: rgba(128,128,128,0.05);
+    border: 1px solid var(--border-color);
+    padding: 3px 8px;
+    border-radius: 5px;
+}
+
+.spec-icon {
+    width: 12px;
+    height: 12px;
+    color: var(--text-dim);
+}
+
+.tag {
+    align-self: flex-start;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.tag-dev { background: rgba(245, 158, 11, 0.12); color: var(--warning); border: 1px solid rgba(245,158,11,0.2); }
+.tag-ok  { background: rgba(16, 185, 129, 0.12); color: var(--success); border: 1px solid rgba(16,185,129,0.2); }
+.tag-rev { background: rgba(99, 102, 241, 0.12); color: var(--info);    border: 1px solid rgba(99,102,241,0.2); }
+
+/* Sin resultados */
+.no-results {
+    text-align: center;
+    padding: 50px 20px;
+    color: var(--text-muted);
+}
+
+.no-results svg { width: 48px; height: 48px; margin-bottom: 12px; opacity: 0.4; }
+.no-results p { font-size: 1rem; font-weight: 500; margin-bottom: 4px; }
+.no-results span { font-size: 0.85rem; color: var(--text-dim); }
+
+/* ---- SECCIONES INFERIORES ---- */
+.sections-split {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.panel-section {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 22px;
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.panel-header h2 { font-size: 1.1rem; font-weight: 600; }
+
+.icon-blue { color: var(--accent); width: 20px; height: 20px; }
+
+/* Code window */
+.code-window, .table-container {
+    background: var(--code-bg);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    overflow-x: auto;
+}
+
+.window-header {
+    background: var(--table-header);
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot.red    { background: #ef4444; }
+.dot.yellow { background: #f59e0b; }
+.dot.green  { background: #10b981; }
+
+.window-title {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-left: 6px;
+}
+
+pre { padding: 16px; }
+code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.83rem;
+    line-height: 1.7;
+}
+.code-comment { color: #4b5563; font-style: italic; }
+
+/* Tabla */
+.tech-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.85rem;
+    min-width: 380px;
+}
+
+.tech-table th {
+    background: var(--table-header);
+    padding: 10px 14px;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.tech-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border-color);
+    transition: background 0.15s;
+}
+
+.tech-table tbody tr:hover td {
+    background: rgba(59,130,246,0.04);
+}
+
+.tech-table tbody tr:last-child td { border-bottom: none; }
+
+.font-medium { font-weight: 500; }
+
+.status-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.status-indicator::before {
+    content: '';
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.status-indicator.ok::before  { background: var(--success); box-shadow: 0 0 5px var(--success); }
+.status-indicator.dev::before { background: var(--warning); box-shadow: 0 0 5px var(--warning); }
+.status-indicator.rev::before { background: var(--info);    box-shadow: 0 0 5px var(--info); }
+
+/* ---- FOOTER ---- */
+footer {
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-panel);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.footer-content {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    font-size: 0.83rem;
+    color: var(--text-muted);
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.footer-icon { width: 16px; height: 16px; }
+
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-sep { color: var(--border-color); }
+
+.version-tag {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.75rem;
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: var(--accent);
+}
+
+/* ---- UTILS ---- */
+.hidden { display: none !important; }
+
+/* ---- RESPONSIVE: TABLET / DESKTOP ---- */
+@media (min-width: 640px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 768px) {
+    .navbar { padding: 14px 40px; }
+    .logo { font-size: 1.15rem; }
+    .burger-menu { display: none; }
+
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        width: auto;
+        background: transparent;
+        border: none;
+        padding: 0;
+        gap: 4px;
+        box-shadow: none;
     }
 
-    // --- BÚSQUEDA Y FILTRO ---
-    const searchInput = document.getElementById('search');
-    const filterBtns = document.querySelectorAll('.btn-filter');
-    let filtroActivo = 'all';
-    let busqueda = '';
+    .nav-link { font-size: 0.9rem; padding: 6px 10px; }
 
-    function aplicarFiltros() {
-        let resultado = piezas.filter(p => {
-            const matchCategoria = filtroActivo === 'all' || p.categoria === filtroActivo;
-            const matchBusqueda = busqueda === '' ||
-                p.nombre.toLowerCase().includes(busqueda) ||
-                p.descripcion.toLowerCase().includes(busqueda) ||
-                p.categoria.toLowerCase().includes(busqueda) ||
-                p.estado.toLowerCase().includes(busqueda) ||
-                p.material.toLowerCase().includes(busqueda);
-            return matchCategoria && matchBusqueda;
-        });
-        renderCards(resultado);
+    .sections-split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
     }
 
-    searchInput.addEventListener('input', (e) => {
-        busqueda = e.target.value.toLowerCase().trim();
-        aplicarFiltros();
-    });
-
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            filtroActivo = btn.dataset.filter;
-            aplicarFiltros();
-        });
-    });
-
-    // --- RENDER INICIAL ---
-    renderCards(piezas);
-
-    // --- ACTUALIZAR TABLA DE ESTADO DINÁMICAMENTE ---
-    const tbody = document.querySelector('.tech-table tbody');
-    if (tbody) {
-        tbody.innerHTML = piezas.map(p => {
-            const cfg = estadoConfig[p.estado] || estadoConfig.desarrollo;
-            return `
-                <tr>
-                    <td><code>${p.id}</code></td>
-                    <td class="font-medium">${p.nombre}</td>
-                    <td><span class="status-indicator ${cfg.indicator}">${cfg.label}</span></td>
-                </tr>
-            `;
-        }).join('');
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
     }
+}
 
-    // --- CONTADOR HERO ---
-    function animarContador(elemento, fin, duracion) {
-        let inicio = 0;
-        const paso = duracion / fin;
-        const timer = setInterval(() => {
-            inicio++;
-            elemento.textContent = inicio;
-            if (inicio >= fin) clearInterval(timer);
-        }, paso);
-    }
-
-    const statNums = document.querySelectorAll('.stat-num');
-    statNums.forEach(el => {
-        const val = parseInt(el.dataset.val);
-        animarContador(el, val, 800);
-    });
-
-    // --- TOOLTIP EN CARDS ---
-    document.addEventListener('mouseover', (e) => {
-        const card = e.target.closest('.card');
-        if (card) card.classList.add('card-hovered');
-    });
-    document.addEventListener('mouseout', (e) => {
-        const card = e.target.closest('.card');
-        if (card) card.classList.remove('card-hovered');
-    });
-
-});
+@media (min-width: 1024px) {
+    .grid { grid-template-columns: repeat(3, 1fr); }
+}
