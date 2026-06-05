@@ -47,7 +47,7 @@ body {
 }
 
 .custom-logo {
-    height: 28px;
+    height: 48px;
     width: auto;
     object-fit: contain;
 }
@@ -410,4 +410,79 @@ footer {
     .grid { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
     .sections-split { grid-template-columns: 1fr 1fr; gap: 30px; }
     .footer-content { flex-direction: row; justify-content: space-between; }
+}
+
+/* IMAGEN DE CARD */
+.card-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border-color);
+}
+
+/* AUTOR Y CURSO */
+.card-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.card-autor {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.meta-icon {
+    width: 12px;
+    height: 12px;
+}
+
+/* BOTONES DE DESCARGA */
+.card-actions {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.78rem;
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    text-decoration: none;
+    background: var(--bg-input);
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.card-link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.card-link svg {
+    width: 13px;
+    height: 13px;
+}
+
+/* TAG REVISIÓN */
+.tag-rev { background: rgba(99, 102, 241, 0.15); color: #818cf8; }
+
+/* ERROR MSG */
+.error-msg {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    padding: 20px;
+    text-align: center;
+    grid-column: 1 / -1;
 }
