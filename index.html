@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca 3D - Mantenimiento Electromecánico</title>
+    <title>Biblioteca 3D - Ingeniería Electromecánica</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
@@ -13,8 +13,8 @@
 
 <header class="navbar">
     <div class="logo">
-        <img src="imagenes/logo_biblioteca3D2.png" alt="logo Libreria IES Guardo" class="custom-logo">
-        <span>IES GUARDO <span class="text-light">LIBRARY</span></span>
+        <img src="imagenes/logo_biblioteca3D.png" alt="Logo TECH 3D" class="custom-logo">
+        <span>TECH 3D <span class="text-light">LIBRARY</span></span>
     </div>
     
     <div class="nav-actions">
@@ -38,7 +38,7 @@
 <main>
     <section class="hero">
         <h1>Biblioteca de Piezas 3D</h1>
-        <p class="subtitle">Mantenimiento Electromecánico · Catálogo técnico digital de precisión</p>
+        <p class="subtitle">Ingeniería Electromecánica · Catálogo técnico digital de precisión</p>
         
         <div class="search-container">
             <i data-lucide="search" class="search-icon"></i>
@@ -58,37 +58,7 @@
 
     <section id="catalogo" class="catalog-section">
         <div class="grid" id="catalog-grid">
-            
-            <div class="card item engranajes" data-status="desarrollo">
-                <div class="card-header">
-                    <i data-lucide="settings" class="card-icon"></i>
-                    <span class="part-id">#001</span>
-                </div>
-                <h3>Engranaje Helicoidal</h3>
-                <p>Pieza mecánica de transmisión de potencia de alta resistencia.</p>
-                <span class="tag tag-dev">En desarrollo</span>
-            </div>
-
-            <div class="card item soportes" data-status="finalizado">
-                <div class="card-header">
-                    <i data-lucide="wrench" class="card-icon"></i>
-                    <span class="part-id">#002</span>
-                </div>
-                <h3>Soporte Motor NEMA</h3>
-                <p>Soporte estructural reforzado para motores paso a paso estructurales.</p>
-                <span class="tag tag-ok">Finalizado</span>
-            </div>
-
-            <div class="card item carcasas" data-status="desarrollo">
-                <div class="card-header">
-                    <i data-lucide="box" class="card-icon"></i>
-                    <span class="part-id">#003</span>
-                </div>
-                <h3>Carcasa Reductora</h3>
-                <p>Protección modular estanca para alojamiento de mecanismos internos.</p>
-                <span class="tag tag-dev">En desarrollo</span>
-            </div>
-
+            <!-- Cards generadas dinámicamente desde piezas/index.json -->
         </div>
         <div id="no-results" class="no-results hidden">
             <i data-lucide="alert-circle"></i>
