@@ -361,6 +361,7 @@ code { font-family: 'Fira Code', monospace; font-size: 0.85rem; }
 .status-indicator::before { content: ''; width: 6px; height: 6px; border-radius: 50%; }
 .status-indicator.dev::before { background: var(--warning); }
 .status-indicator.ok::before { background: var(--success); }
+.status-indicator.rev::before { background: #818cf8; }
 
 /* FOOTER */
 footer {
@@ -408,7 +409,7 @@ footer {
     .nav-link:hover, .nav-link.active { background: transparent; }
     
     .grid { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
-    .sections-split { grid-template-columns: 1fr 1fr; gap: 30px; }
+    .sections-split { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
     .footer-content { flex-direction: row; justify-content: space-between; }
 }
 
