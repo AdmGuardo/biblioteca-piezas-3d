@@ -1,0 +1,16 @@
+{
+  "id": "001",
+  "nombre": "Engranaje Helicoidal",
+  "descripcion": "Pieza mecánica de transmisión de potencia de alta resistencia.",
+  "categoria": "engranajes",
+  "estado": "desarrollo",
+  "autor": "Profesor demo",
+  "curso": "2024-2025",
+  "material": "PLA+",
+  "peso": "1.24 kg",
+  "imagen": "preview.png",
+  "archivos": {
+    "stl": "pieza.stl",
+    "plano": "plano.pdf"
+  }
+}
