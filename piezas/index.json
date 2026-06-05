@@ -9,10 +9,10 @@
     "curso": "2024-2025",
     "material": "PLA+",
     "peso": "1.24 kg",
-    "imagen": "piezas/001-engranaje-helicoidal/preview.png",
+    "imagen": "piezas/001-engranajes/preview.png",
     "archivos": {
-      "stl": "piezas/001-engranaje-helicoidal/pieza.stl",
-      "plano": "piezas/001-engranaje-helicoidal/plano.pdf"
+      "stl": "piezas/001-engranajes/pieza.stl",
+      "plano": "piezas/001-engranajes/plano.pdf"
     }
   }
 ]
