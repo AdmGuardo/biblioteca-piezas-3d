@@ -1,0 +1,17 @@
+{
+  "id": "000",
+  "nombre": "Nombre de la pieza",
+  "descripcion": "Descripción breve de la pieza y su función.",
+  "categoria": "engranajes",
+  "estado": "desarrollo",
+  "autor": "Nombre del alumno",
+  "curso": "2024-2025",
+  "material": "PLA / ABS / PETG",
+  "peso": "0.00 kg",
+  "imagen": "imagenes/preview.png",
+  "archivos": {
+    "stl": "archivos/pieza.stl",
+    "f3d": "archivos/pieza.f3d",
+    "plano": "docs/plano.pdf"
+  }
+}
