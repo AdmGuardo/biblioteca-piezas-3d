@@ -51,8 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // --- ELEMENTOS DEL DOM ---
-    const grid      = document.getElementById('catalog-grid');
-    const noResults = document.getElementById('no-results');
+    const grid         = document.getElementById('catalog-grid');
+    const noResults    = document.getElementById('no-results');
     const searchInput  = document.getElementById('search');
     const filterBtns   = document.querySelectorAll('.btn-filter');
 
@@ -109,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
             grid.appendChild(card);
         });
 
+        // Una sola llamada tras renderizar todas las cards
         if (window.lucide) lucide.createIcons();
     }
 
@@ -162,9 +163,12 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(datos => {
             todasLasPiezas = datos;
             aplicarFiltros();
+            // Inicializar iconos estáticos del navbar/footer en la primera carga
+            if (window.lucide) lucide.createIcons();
         })
         .catch(err => {
             console.warn('Error cargando catálogo:', err);
             grid.innerHTML = `<p class="error-msg">No se pudo cargar el catálogo. Comprueba que existe piezas/index.json</p>`;
+            if (window.lucide) lucide.createIcons();
         });
 });
