@@ -10,7 +10,7 @@ Las piezas se organizan por categoría dentro de `piezas/`:
 piezas/
 ├── engranajes/
 ├── soportes/
-├── carcasas/
+├── DIN/
 └── otros/
 ```
 
