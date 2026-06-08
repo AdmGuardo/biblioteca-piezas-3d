@@ -68,5 +68,19 @@
       "stl": "piezas/soportes/201-pinza-tubo-neumatico-4mm/pieza.stl",
       "plano": "piezas/soportes/201-pinza-tubo-neumatico-4mm/plano.pdf"
     }
+  },
+  {
+    "id": "202",
+    "nombre": "Doble pinza para tubos neumaticos de 4mm",
+    "descripcion": "Sujeccion multisuperficie para tubos de 4mm. (Es necesario el uso de cinta de doble cara).",
+    "categoria": "soportes",
+    "estado": "revision",
+    "autor": "Jimena Gómez Villacorta",
+    "curso": "2025-2026",
+    "imagen": "piezas/soportes/202-doble-pinza-tubo-neumatico-4mm/preview.png",
+    "archivos": {
+      "stl": "piezas/soportes/202-doble-pinza-tubo-neumatico-4mm/pieza.stl",
+      "plano": "piezas/soportes/202-doble-pinza-tubo-neumatico-4mm/plano.pdf"
+    }
   }
 ]
