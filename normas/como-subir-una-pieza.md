@@ -84,7 +84,7 @@ piezas/categoria/id-nombre-pieza/ficha.json
 
 ### Paso 2 — Subir la imagen de preview
 
-1. Entra en la carpeta `piezas/engranajes/002-conico/` que acabas de crear
+1. Entra en la carpeta `piezas/engranajes/102-conico/` que acabas de crear
 2. Pulsa **"Add file"** → **"Upload files"**
 3. Sube tu imagen con el nombre `preview.png`
 4. Pulsa **"Commit changes"**
