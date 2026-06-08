@@ -2,7 +2,7 @@
 
 ## ¿Qué es un commit?
 
-GitHub funciona como un historial de versiones. Cada vez que guardas cambios se llama **commit**. Desde la web de GitHub no necesitas saber nada más — cuando pulsas el botón verde **"Commit changes"** al final de una página, los cambios se guardan y publican automáticamente.
+GitHub funciona como un historial de versiones. Cada vez que guardas cambios se llama **commit**, cuando pulsas el botón verde **"Commit changes"** al final de una página, los cambios se guardan y publican automáticamente.
 
 **Main** es la rama principal, es decir, la versión oficial que se publica en la web.
 
