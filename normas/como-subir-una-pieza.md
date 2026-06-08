@@ -49,12 +49,13 @@ Ejemplos: `302-engranaje-conico`, `107-pinza-neumatica`, `412-tapa-rele`
 1. Ve al repositorio en GitHub y accede a la carpeta de `piezas`
 2. Pulsa **"Add file"** → **"Create new file"**
 3. Escribe la ruta completa en el campo del nombre, por ejemplo:
+piezas/categoria/id-nombre-pieza/ficha.json
    ```
    piezas/engranajes/002-conico/ficha.json
    ```
    > Al escribir `/` GitHub crea las carpetas automáticamente
 
-4. Pega este contenido y rellena tus datos:
+5. Pega este contenido y rellena tus datos:
 
 ```json
 {
