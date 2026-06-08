@@ -4,8 +4,6 @@ Plantillas para documentar una pieza nueva.
 
 ---
 
-## Archivos disponibles
-
 | Archivo | Para qué sirve |
 |---------|----------------|
 | `ficha-pieza.json` | **Plantilla principal** — es la que alimenta el catálogo web. Cópiala como `ficha.json` dentro de tu carpeta de pieza |
