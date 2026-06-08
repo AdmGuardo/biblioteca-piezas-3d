@@ -1,6 +1,6 @@
 # Imágenes 
 
-Recursos gráficos generales (logos, banners...).
+Esta carpeta es para recursos gráficos generales (logos, banners...).
 
 > LAS IMAGENES DE LAS PIEZAS PARA EL CATÁLOGO WEB NO VAN AQUI, VAN EN SU RESPECTIVA CARPETA SITUADA EN `piezas/`
 
