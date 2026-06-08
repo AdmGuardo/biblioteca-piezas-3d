@@ -52,7 +52,7 @@ Puedes ver el estado de ese proceso en la pestaña **Actions** del repositorio.
 
 ---
 
-## Estado del proyecto
+## Estados de los proyectos.
 
 | Nº  | Pieza                | Estado        |
 |-----|----------------------|---------------|
