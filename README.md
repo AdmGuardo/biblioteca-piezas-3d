@@ -63,7 +63,8 @@ Puedes ver el estado de ese proceso en la pestaña **Actions** del repositorio.
 ---
 ## Genera tu licencia Creative Commons
 Es una de las herramientas legales gratuitas que permiten a los creadores compartir sus obras públicamente, manteniendo sus derechos de autor.
-🌐 > https://creativecommons.org/chooser/
+
+🌐 https://creativecommons.org/chooser/
 
 ## Departamento
 
