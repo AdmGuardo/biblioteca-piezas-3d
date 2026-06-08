@@ -7,7 +7,7 @@ GitHub funciona como un historial de versiones. Cada vez que guardas cambios se 
 
 ---
 
-## Nueva estructura de carpetas
+## Nueva estructura de la carpeta de ''piezas''
 
 Las piezas ahora se organizan por categoría. La ruta de tu pieza será:
 
