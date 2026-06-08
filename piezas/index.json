@@ -16,6 +16,22 @@
     }
   },
   {
+    "id": "002",
+    "nombre": "Engranaje Cónico",
+    "descripcion": "Engranaje para transmisión de movimiento entre ejes perpendiculares.",
+    "categoria": "engranajes",
+    "estado": "desarrollo",
+    "autor": "Profesor demo",
+    "curso": "2024-2025",
+    "material": "PLA",
+    "peso": "0.85 kg",
+    "imagen": "piezas/engranajes/002-conico/preview.png",
+    "archivos": {
+      "stl": "piezas/engranajes/002-conico/pieza.stl",
+      "plano": "piezas/engranajes/002-conico/plano.pdf"
+    }
+  },
+  {
     "id": "010",
     "nombre": "Bastidor para Enchufe",
     "descripcion": "Soporte diseñado para fijar mecanismos de enchufe en cajas de empotrar, proporcionando estabilidad y alineación durante el montaje.",
