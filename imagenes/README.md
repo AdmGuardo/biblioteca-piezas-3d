@@ -1,6 +1,6 @@
-# Imágenes del proyecto
+# Imágenes 
 
-Recursos gráficos generales del proyecto (logos, banners, capturas de la web...).
+Recursos gráficos generales (logos, banners...).
 
 > LAS IMAGENES DE LAS PIEZAS PARA EL CATÁLOGO WEB NO VAN AQUI, VAN EN SU RESPECTIVA CARPETA SITUADA EN `piezas/`
 
