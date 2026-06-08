@@ -25,12 +25,11 @@ Consulta la guía completa aquí: [normas/como-subir-una-pieza.md](normas/como-s
 En resumen:
 1. Entra en la carpeta de piezas.
 2. Elige la categoría correcta: `engranajes`, `soportes`, `din` u `otros`
-3. Dentro de la carpeta de la categoría crea 'new file'
+3. Dentro de la carpeta de la categoría crea una carpeta en `piezas/CATEGORIA/XXX-nombre-pieza/` (ej: `piezas/engranajes/101-conico/`)
 4. Asigna el ID según el rango de tu categoría (ver tabla abajo) y comprueba que no esté en uso en `piezas/index.json`
-5. Crea una carpeta en `piezas/CATEGORIA/XXX-nombre-pieza/` (ej: `piezas/engranajes/101-conico/`)
-6. Copia la plantilla `plantillas/ficha-pieza.json` y rellénala como `ficha.json`
-7. Sube tu `preview.png`, archivo STL y planos
-8. Haz commit — GitHub actualizará el catálogo web automáticamente en menos de un minuto
+5. Copia la plantilla `plantillas/ficha-pieza.json` y rellénala como `ficha.json`
+6. Sube tu `preview.png`, archivo STL y planos
+7. Haz commit — GitHub actualizará el catálogo web automáticamente en menos de un minuto
 
 ### Rangos de ID por categoría
 
