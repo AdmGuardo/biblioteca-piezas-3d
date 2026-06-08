@@ -135,10 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const img = card.querySelector('.card-img');
             if (img) img.addEventListener('click', () => abrirLightbox(img.src, img.alt));
-
-            // Lightbox en la imagen de la card
-            const img = card.querySelector('.card-img');
-            if (img) img.addEventListener('click', () => abrirLightbox(img.src, img.alt));
         });
 
         if (window.lucide) lucide.createIcons();
