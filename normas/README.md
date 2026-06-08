@@ -2,22 +2,38 @@
 
 ---
 
+## Estructura de carpetas
+
+Las piezas se organizan por categoría dentro de `piezas/`:
+
+```
+piezas/
+├── engranajes/
+├── soportes/
+├── carcasas/
+└── otros/
+```
+
+Dentro de cada categoría, una carpeta por pieza con el formato:
+
+```
+XXX-nombre-descriptivo
+```
+
+Ejemplo completo: `piezas/engranajes/007-pinza-neumatica/`
+
+---
+
 ## Nombrado de carpetas
 
-Formato obligatorio:
+- `XXX` = número correlativo de tres dígitos: 001, 002, 003...
+- Nombre en minúsculas, con guiones, sin espacios ni tildes ni caracteres especiales
 
-```
-XXX-nombre-pieza
-```
-
-- `XXX` es el número correlativo con tres dígitos (001, 002, 003...)
-- El nombre en minúsculas y con guiones, sin espacios ni caracteres especiales
-
-Ejemplo:
-
-```
-007-pinza-neumatica
-```
+| Correcto | Incorrecto |
+|----------|------------|
+| `001-helicoidal` | `1-Helicoidal` |
+| `007-pinza-neumatica` | `07 pinza neumática` |
+| `012-tapa-motor` | `012_tapa_motor` |
 
 ---
 
@@ -25,7 +41,7 @@ Ejemplo:
 
 | Archivo | Descripción |
 |---------|-------------|
-| `ficha.json` | Datos de la pieza — alimenta el catálogo web |
+| `ficha.json` | Metadatos — sin este archivo la pieza no aparece en la web |
 | `pieza.stl` | Archivo para impresión 3D |
 
 ## Archivos recomendados
@@ -40,17 +56,16 @@ Ejemplo:
 
 ## Mensajes de commit
 
-Usa mensajes descriptivos para que el historial sea útil:
+Usa mensajes descriptivos:
 
 ```
 Añadida pieza 007 - Pinza neumática
-Actualizada documentación del soporte de motor
-Corregido STL de engranaje helicoidal
+Actualizada ficha del engranaje helicoidal
+Corregido STL de soporte motor NEMA
 ```
 
 ---
 
-## Guía completa
+## Guía completa para subir una pieza
 
-Si es la primera vez que subes una pieza, sigue la guía paso a paso:
 👉 [como-subir-una-pieza.md](como-subir-una-pieza.md)
