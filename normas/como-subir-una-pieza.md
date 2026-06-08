@@ -60,17 +60,17 @@ piezas/categoria/id-nombre-pieza/ficha.json
 
 ```json
 {
-  "id": "002",
+  "id": "102",
   "nombre": "Engranaje Cónico",
   "descripcion": "Descripción breve de qué hace y para qué sirve.",
   "categoria": "engranajes",
   "estado": "desarrollo",
   "autor": "Tu nombre y apellidos",
-  "curso": "2024-2025",
-  "imagen": "piezas/engranajes/002-conico/preview.png",
+  "curso": "2025-2026",
+  "imagen": "piezas/engranajes/102-conico/preview.png",
   "archivos": {
-    "stl": "piezas/engranajes/002-conico/pieza.stl",
-    "plano": "piezas/engranajes/002-conico/plano.pdf"
+    "stl": "piezas/engranajes/102-conico/pieza.stl",
+    "plano": "piezas/engranajes/102-conico/plano.pdf"
   }
 }
 ```
