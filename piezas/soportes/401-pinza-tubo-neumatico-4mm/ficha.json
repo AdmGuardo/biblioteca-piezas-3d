@@ -9,7 +9,6 @@
   "imagen": "piezas/soportes/401-pinza-tubo-neumatico-4mm/preview.png",
   "archivos": {
     "stl": "piezas/soportes/401-pinza-tubo-neumatico-4mm/pieza.stl",
-    "f3d": "piezas/soportes/401-pinza-tubo-neumatico-4mm/pieza.f3d",
     "plano": "piezas/soportes/401-pinza-tubo-neumatico-4mm/plano.pdf"
   }
 }
