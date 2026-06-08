@@ -1,126 +1,528 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca 3D - Mantenimiento Electromecánico</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
-</head>
-<body>
+/* Paleta base por defecto (Modo Oscuro Industrial) */
+:root {
+    --bg-main: #11141a;
+    --bg-panel: #171d26;
+    --bg-input: #202733;
+    --border-color: #2b3545;
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --accent: #2563eb;
+    --success: #059669;
+    --warning: #d97706;
+    --code-bg: #0b0e14;
+    --table-header: #0e1218;
+}
 
-<header class="navbar">
-    <div class="logo">
-        <img src="imagenes/logo_biblioteca3D2.png" alt="Logo IES Guardo" class="custom-logo">
-        <span> IES Guardo <span class="text-light">LIBRARY</span></span>
-    </div>
+/* Variables para Modo Claro */
+[data-theme="light"] {
+    --bg-main: #f4f6f9;
+    --bg-panel: #ffffff;
+    --bg-input: #ffffff;
+    --border-color: #d1d5db;
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --accent: #2563eb;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --code-bg: #f8fafc;
+    --table-header: #e5e7eb;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.5;
+    transition: background 0.3s, color 0.3s;
+}
+
+.custom-logo {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* NAVBAR RESPONSIVA */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background: var(--bg-panel);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.text-light {
+    font-weight: 300;
+    color: var(--text-muted);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-icon {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* MENÚ DESPLEGABLE EN MÓVILES */
+.nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--bg-panel);
+    border-bottom: 1px solid var(--border-color);
+    padding: 20px;
+    gap: 15px;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+}
+
+.nav-links.open {
+    display: flex;
+}
+
+.nav-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--accent);
+    background: rgba(37, 99, 235, 0.05);
+}
+
+/* Lógica de visibilidad de iconos del tema */
+[data-theme="light"] .sun-icon, 
+:root:not([data-theme="light"]) .moon-icon {
+    display: none;
+}
+
+/* HERO */
+main {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.hero {
+    padding: 40px 10px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+/* BUSCADOR */
+.search-container {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+}
+
+#search {
+    width: 100%;
+    padding: 12px 14px 12px 42px;
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    color: var(--text-main);
+    outline: none;
+}
+
+/* FILTROS CON SCROLL LATERAL EN MÓVIL */
+.filters-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.filter-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    padding-left: 5px;
+}
+
+.filters {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 4px;
+    width: 100%;
+    scrollbar-width: none; /* Ocultar scrollbar en Firefox */
+}
+
+.filters::-webkit-scrollbar {
+    display: none; /* Ocultar scrollbar en Chrome/Safari */
+}
+
+.btn-filter {
+    padding: 8px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    background: var(--bg-panel);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    white-space: nowrap; /* Evita que el texto salte de línea */
+}
+
+.btn-filter.active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+/* CARDS GRID */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 columna por defecto en móviles */
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.part-id {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    background: rgba(128,128,128,0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+}
+
+.tag {
+    align-self: flex-start;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.tag-dev { background: rgba(217, 119, 6, 0.15); color: var(--warning); }
+.tag-ok { background: rgba(5, 150, 105, 0.15); color: var(--success); }
+
+/* SECCIONES INFERIORES */
+.sections-split {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.panel-section {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 20px;
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.panel-header h2 { font-size: 1.2rem; }
+
+/* CONTENEDORES CON SCROLL INTERNO PARA MÓVILES */
+.code-window, .table-container {
+    background: var(--code-bg);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    overflow-x: auto; /* Permite arrastrar de lado el código y la tabla sin romper la web */
+}
+
+.window-header {
+    background: var(--table-header);
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.dot { width: 8px; height: 8px; border-radius: 50%; }
+.dot.red { background: #ef4444; }
+.dot.yellow { background: #f59e0b; }
+.dot.green { background: #10b981; }
+
+.window-title {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-left: 5px;
+}
+
+pre { padding: 12px; }
+code { font-family: 'Fira Code', monospace; font-size: 0.85rem; }
+.code-comment { color: #6b7280; }
+
+/* TABLAS */
+.tech-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.85rem; min-width: 400px; }
+.tech-table th {
+    background: var(--table-header);
+    padding: 10px 12px;
+    color: var(--text-muted);
+}
+.tech-table td { padding: 12px 12px; border-bottom: 1px solid var(--border-color); }
+
+.status-indicator { display: inline-flex; align-items: center; gap: 5px; }
+.status-indicator::before { content: ''; width: 6px; height: 6px; border-radius: 50%; }
+.status-indicator.dev::before { background: var(--warning); }
+.status-indicator.ok::before { background: var(--success); }
+.status-indicator.rev::before { background: #818cf8; }
+
+/* FOOTER */
+footer {
+    border-top: 1px solid var(--border-color);
+    margin-top: 40px;
+    background: var(--bg-panel);
+    padding: 20px;
+}
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+.version-tag {
+    font-family: 'Fira Code', monospace;
+    background: var(--bg-main);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+.hidden { display: none !important; }
+
+/* --- RESPONSIVIDAD PARA ESCRITORIO (MÁS DE 768PX) --- */
+@media (min-width: 768px) {
+    .navbar { padding: 16px 40px; }
+    .logo { font-size: 1.2rem; }
+    .burger-menu { display: none; } /* Ocultar hamburguesa en escritorio */
     
-    <div class="nav-actions">
-        <button id="theme-toggle" class="btn-icon" aria-label="Cambiar tema">
-            <i data-lucide="sun" class="sun-icon"></i>
-            <i data-lucide="moon" class="moon-icon"></i>
-        </button>
-        <button id="menu-toggle" class="btn-icon burger-menu" aria-label="Abrir menú">
-            <i data-lucide="menu" class="menu-icon"></i>
-            <i data-lucide="x" class="close-icon hidden"></i>
-        </button>
-    </div>
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        width: auto;
+        background: transparent;
+        border: none;
+        padding: 0;
+        gap: 25px;
+        box-shadow: none;
+    }
+    
+    .nav-link { font-size: 0.95rem; padding: 0; }
+    .nav-link:hover, .nav-link.active { background: transparent; }
+    
+    .grid { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+    .sections-split { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .footer-content { flex-direction: row; justify-content: space-between; }
+}
 
-    <nav id="nav-menu" class="nav-links">
-        <a href="#catalogo" class="nav-link active"><i data-lucide="layers"></i> Catálogo</a>
-        <a href="#estructura" class="nav-link"><i data-lucide="folder-tree"></i> Estructura</a>
-        <a href="#estado" class="nav-link"><i data-lucide="bar-chart-3"></i> Estado</a>
-    </nav>
-</header>
+/* IMAGEN DE CARD */
+.card-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border-color);
+}
 
-<main>
-    <section class="hero">
-        <h1>Biblioteca de Piezas 3D</h1>
-        <p class="subtitle">Mantenimiento Electromecánico · Catálogo técnico digital de precisión</p>
-        
-        <div class="search-container">
-            <i data-lucide="search" class="search-icon"></i>
-            <input id="search" type="text" placeholder="Buscar por nombre, tipo o estado...">
-        </div>
-    </section>
+/* AUTOR Y CURSO */
+.card-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
 
-    <section class="filters-container">
-        <span class="filter-label">Filtrar por categoría:</span>
-        <div class="filters">
-            <button class="btn-filter active" data-filter="all">Todas</button>
-            <button class="btn-filter" data-filter="engranajes">Engranajes</button>
-            <button class="btn-filter" data-filter="soportes">Soportes</button>
-            <button class="btn-filter" data-filter="din">DIN</button>
-            <button class="btn-filter" data-filter="otros">Otros</button>
-        </div>
-    </section>
+.card-autor {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
 
-    <section id="catalogo" class="catalog-section">
-        <div class="grid" id="catalog-grid">
-            <!-- Cards generadas dinámicamente desde piezas/index.json -->
-        </div>
-        <div id="no-results" class="no-results hidden">
-            <i data-lucide="alert-circle"></i>
-            <p>No se encontraron piezas que coincidan.</p>
-        </div>
-    </section>
+.meta-icon {
+    width: 12px;
+    height: 12px;
+}
 
-    <div class="sections-split">
-        <section id="estructura" class="panel-section">
-            <div class="panel-header">
-                <i data-lucide="folder-tree" class="icon-blue"></i>
-                <h2>Estructura del Sistema</h2>
-            </div>
-            <div class="code-window">
-                <div class="window-header">
-                    <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-                    <span class="window-title">root / biblioteca-piezas-3d</span>
-                </div>
-                <pre><code>📦 biblioteca-piezas-3d
-├── 📂 piezas/       <span class="code-comment"># Archivos .STL y .STEP</span>
-├── 📂 docs/         <span class="code-comment"># Planos técnicos en PDF</span>
-├── 📂 plantillas/   <span class="code-comment"># Impresión y mecanizado</span>
-└── 📂 imagenes/     <span class="code-comment"># Renders y capturas</span></code></pre>
-            </div>
-        </section>
+/* BOTONES DE DESCARGA */
+.card-actions {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
 
-        <section id="estado" class="panel-section">
-            <div class="panel-header">
-                <i data-lucide="bar-chart-3" class="icon-blue"></i>
-                <h2>Estado General</h2>
-            </div>
-            <div class="table-container">
-                <table class="tech-table">
-                    <thead>
-                        <tr>
-                            <th id="th-id" style="cursor:pointer; user-select:none;">ID <span id="sort-icon"><i data-lucide="chevrons-up-down" style="width:14px;height:14px;vertical-align:middle;"></i></span></th>
-                            <th>Componente</th>
-                            <th>Estado</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Generado dinámicamente por script.js -->
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    </div>
-</main>
+.card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.78rem;
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    text-decoration: none;
+    background: var(--bg-input);
+    transition: border-color 0.2s, color 0.2s;
+}
 
-<!-- LIGHTBOX -->
-<div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true">
-    <button id="lightbox-close" class="lightbox-close" aria-label="Cerrar"><i data-lucide="x"></i></button>
-    <img id="lightbox-img" src="" alt="">
-</div>
+.card-link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
 
-<footer>
-    <div class="footer-content">
-        <div><i data-lucide="factory" style="vertical-align: middle; margin-right: 5px;"></i> Mantenimiento Electromecánico &copy; 2026</div>
-        <div class="version-tag">v2.3.0</div>
-    </div>
-</footer>
+.card-link svg {
+    width: 13px;
+    height: 13px;
+}
 
-</body>
-</html>
+/* TAG REVISIÓN */
+.tag-rev { background: rgba(99, 102, 241, 0.15); color: #818cf8; }
+
+/* ERROR MSG */
+.error-msg {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    padding: 20px;
+    text-align: center;
+    grid-column: 1 / -1;
+}
+
+/* LIGHTBOX */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    cursor: zoom-out;
+}
+
+.lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    cursor: default;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-close svg { width: 20px; height: 20px; }
+
+.card-img { cursor: zoom-in; }
