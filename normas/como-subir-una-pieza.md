@@ -41,7 +41,7 @@ Cada categoría tiene reservado un rango de IDs de tres cifras. El número X00 (
 XXX-nombre-descriptivo
 ```
 
-Ejemplos: `002-conico`, `007-pinza-neumatica`, `012-tapa-motor`
+Ejemplos: `002-engranaje-conico`, `007-pinza-neumatica`, `012-tapa-rele`
 
 ---
 
