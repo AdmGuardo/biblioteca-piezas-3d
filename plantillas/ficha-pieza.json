@@ -5,7 +5,7 @@
   "categoria": "engranajes",
   "estado": "desarrollo",
   "autor": "Nombre del alumno",
-  "curso": "2024-2025",
+  "curso": "2025-2026",
   "imagen": "piezas/CATEGORIA/XXX-nombre-pieza/preview.png",
   "archivos": {
     "stl": "piezas/CATEGORIA/XXX-nombre-pieza/pieza.stl",
