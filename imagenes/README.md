@@ -2,7 +2,7 @@
 
 Recursos gráficos generales del proyecto (logos, banners, capturas de la web...).
 
-> LAS IMAGENES DE LAS PIEZAS PARA EL CATALOGO WEB NO VAN AQUI, VAN EN SU CARPETA SITUADA EN `piezas/`, no aquí.
+> LAS IMAGENES DE LAS PIEZAS PARA EL CATÁLOGO WEB NO VAN AQUI, VAN EN SU RESPECTIVA CARPETA SITUADA EN `piezas/`
 
 ---
 
