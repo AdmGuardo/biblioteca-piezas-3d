@@ -1,6 +1,6 @@
 # Biblioteca de Piezas 3D — Mantenimiento Electromecánico
 
-Repositorio colaborativo para recopilar, documentar y conservar piezas diseñadas e impresas en 3D por alumnos y profesores del ciclo de **Mantenimiento Electromecánico**.
+Repositorio colaborativo para recopilar y conservar piezas diseñadas en 3D por alumnos y profesores del ciclo de **Mantenimiento Electromecánico**.
 
 🌐 **Web del catálogo:** [admguardo.github.io/biblioteca-piezas-3d](https://admguardo.github.io/biblioteca-piezas-3d/)
 
