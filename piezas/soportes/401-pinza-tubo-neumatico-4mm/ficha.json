@@ -1,0 +1,15 @@
+{
+  "id": "401",
+  "nombre": "Pinza de Tubo Neumático 4mm",
+  "descripcion": "Soporte multisuperficial para tubos neumaticos de 4mm.(Es necesario el uso de cinta de doble cara)",
+  "categoria": "soportes",
+  "estado": "finalizado",
+  "autor": "Jimena Gómez Villacorta",
+  "curso": "2025-2026",
+  "imagen": "piezas/soportes/401-pinza-tubo-neumatico-4mm/preview.png",
+  "archivos": {
+    "stl": "piezas/soportes/401-pinza-tubo-neumatico-4mm/pieza.stl",
+    "f3d": "piezas/soportes/401-pinza-tubo-neumatico-4mm/pieza.f3d",
+    "plano": "piezas/soportes/401-pinza-tubo-neumatico-4mm/plano.pdf"
+  }
+}
