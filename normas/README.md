@@ -27,7 +27,7 @@ Ejemplo completo: `piezas/engranajes/007-pinza-neumatica/`
 ## Nombrado de carpetas
 
 - `XXX` = número correlativo de tres dígitos: 301, 402, 203...
-- Nombre en minúsculas, con guiones, sin espacios ni tildes ni caracteres especiales
+- Nombre en minúsculas, con guiones, sin espacios ni tildes ni caracteres especiales.
 
 | Correcto | Incorrecto |
 |----------|------------|
