@@ -62,6 +62,29 @@ document.addEventListener('DOMContentLoaded', () => {
     let busqueda        = '';
     let sortAsc         = null; // null = sin ordenar, true = asc, false = desc
 
+    // --- LIGHTBOX ---
+    const lightbox      = document.getElementById('lightbox');
+    const lightboxImg   = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+
+    function abrirLightbox(src, alt) {
+        lightboxImg.src = src;
+        lightboxImg.alt = alt;
+        lightbox.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        if (window.lucide) lucide.createIcons();
+    }
+
+    function cerrarLightbox() {
+        lightbox.classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+
+    lightbox.addEventListener('click', cerrarLightbox);
+    lightboxImg.addEventListener('click', e => e.stopPropagation());
+    lightboxClose.addEventListener('click', cerrarLightbox);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarLightbox(); });
+
     // --- RENDER CARDS ---
     function renderCards(lista) {
         grid.innerHTML = '';
@@ -109,6 +132,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span class="tag ${cfg.cls}">${cfg.label}</span>
             `;
             grid.appendChild(card);
+
+            const img = card.querySelector('.card-img');
+            if (img) img.addEventListener('click', () => abrirLightbox(img.src, img.alt));
+
+            // Lightbox en la imagen de la card
+            const img = card.querySelector('.card-img');
+            if (img) img.addEventListener('click', () => abrirLightbox(img.src, img.alt));
         });
 
         if (window.lucide) lucide.createIcons();
