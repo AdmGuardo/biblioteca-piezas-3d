@@ -10,11 +10,11 @@ Repositorio colaborativo para recopilar, documentar y conservar piezas diseñada
 
 | Carpeta | Contenido |
 |---------|-----------|
-| `piezas/` | Una carpeta por pieza con su `ficha.json`, archivos STL/F3D, imágenes y planos |
+| `piezas/` | Piezas organizadas por categoría (`engranajes/`, `soportes/`, `carcasas/`, `otros/`) |
 | `plantillas/` | Plantillas para crear fichas nuevas |
 | `normas/` | Reglas de nombrado y guía paso a paso para subir una pieza |
 | `docs/` | Memorias, manuales y recursos educativos generales |
-| `imagenes/` | Logos y recursos gráficos de las piezas |
+| `imagenes/` | Logos y recursos gráficos del proyecto |
 
 ---
 
@@ -24,10 +24,11 @@ Consulta la guía completa aquí: [normas/como-subir-una-pieza.md](normas/como-s
 
 En resumen:
 
-1. Crea una carpeta en `piezas/` con el formato `XXX-nombre-pieza` (ej: `004-pinza-neumatica`)
-2. Copia la plantilla `plantillas/ficha-pieza.json` y rellénala como `ficha.json`
-3. Sube tu imagen `preview.png`, archivos STL/F3D y planos
-4. Haz commit — GitHub actualizará el catálogo web automáticamente en menos de un minuto
+1. Elige la categoría correcta: `engranajes`, `soportes`, `carcasas` u `otros`
+2. Crea una carpeta en `piezas/CATEGORIA/XXX-nombre-pieza/` (ej: `piezas/engranajes/002-conico/`)
+3. Copia la plantilla `plantillas/ficha-pieza.json` y rellénala como `ficha.json`
+4. Sube tu `preview.png`, archivos STL/F3D y planos
+5. Haz commit — GitHub actualizará el catálogo web automáticamente en menos de un minuto
 
 ---
 
