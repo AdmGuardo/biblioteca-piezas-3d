@@ -94,7 +94,7 @@ piezas/categoria/id-nombre-pieza/ficha.json
 ### Paso 3 — Subir STL y planos
 
 1. Dentro de tu carpeta pulsa **"Add file"** → **"Upload files"**
-2. Arrastra todos los archivos (STL, PDF...)
+2. Arrastra todos los archivos de pieza y plano (STL y PDF)
 3. Pulsa **"Commit changes"**
 
 ---
