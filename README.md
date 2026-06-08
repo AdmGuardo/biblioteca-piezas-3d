@@ -14,7 +14,7 @@ Repositorio colaborativo para recopilar, documentar y conservar piezas diseñada
 | `plantillas/` | Plantillas para crear fichas nuevas |
 | `normas/` | Reglas de nombrado y guía paso a paso para subir una pieza |
 | `docs/` | Memorias, manuales y recursos educativos generales |
-| `imagenes/` | Logos y recursos gráficos del proyecto |
+| `imagenes/` | Logos y recursos gráficos de las piezas |
 
 ---
 
