@@ -56,12 +56,12 @@ Ejemplo completo: `piezas/engranajes/007-pinza-neumatica/`
 
 ## Mensajes de commit
 
-Usa mensajes descriptivos:
+Es una descripción aditiva no obligatoria, usa mensajes descriptivos:
 
 ```
 Añadida pieza 007 - Pinza neumática
 Actualizada ficha del engranaje helicoidal
-Corregido STL de soporte motor NEMA
+Corregido STL de soporte motor 
 ```
 
 ---
