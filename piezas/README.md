@@ -7,23 +7,47 @@ Las piezas están organizadas por categoría. Dentro de cada categoría, cada pi
 ## Estructura
 
 ```
-piezas/
-├── index.json              ← Catálogo generado automáticamente (no editar)
-├── engranajes/
-│   ├── 001-helicoidal/
-│   │   ├── ficha.json      ← OBLIGATORIO
-│   │   ├── preview.png
-│   │   ├── pieza.stl
-│   │   ├── pieza.f3d
-│   │   └── plano.pdf
-│   └── 002-conico/
-│       └── ficha.json
-├── soportes/
-│   └── 003-motor-nema/
-│       └── ficha.json
-└── carcasas/
-    └── 004-reductora/
-        └── ficha.json
+piezas/ 
+
+├── index.json              ← Para en catálogo web, generado automáticamente. 
+
+├── engranajes/             ← Carpeta de la categoria. 
+
+│   ├── 101-nombre-pieza/   ← Carpeta de la pieza. 
+
+│   │   ├── ficha.json      ← OBLIGATORIO crearlo y editarlo. 
+
+│   │   ├── preview.png 
+
+│   │   ├── pieza.stl 
+
+│   │   └── plano.pdf 
+
+├── soportes/ 
+
+│   └── 203-nombre-pieza/ 
+
+│       └── ficha.json 
+
+│   │   ├── preview.png 
+
+│   │   ├── pieza.stl 
+
+│   │   └── plano.pdf 
+
+│   │ 
+
+└── carcasas/ 
+
+│   └── 004-nombre-pieza/ 
+
+│   │   └── ficha.json 
+
+│   │   ├── preview.png 
+
+│   │   ├── pieza.stl 
+
+│   │   └── plano.pdf 
 ```
 
 ---
