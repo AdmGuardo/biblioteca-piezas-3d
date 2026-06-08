@@ -32,22 +32,6 @@
     }
   },
   {
-    "id": "010",
-    "nombre": "Bastidor para Enchufe",
-    "descripcion": "Soporte diseñado para fijar mecanismos de enchufe en cajas de empotrar, proporcionando estabilidad y alineación durante el montaje.",
-    "categoria": "soportes",
-    "estado": "desarrollo",
-    "autor": "Profesor demo",
-    "curso": "2025-2026",
-    "material": "PLA",
-    "peso": "0.05 kg",
-    "imagen": "piezas/soportes/001-bastidor-enchufe/preview.png",
-    "archivos": {
-      "stl": "piezas/soportes/001-bastidor-enchufe/pieza.stl",
-      "plano": "piezas/soportes/001-bastidor-enchufe/plano.pdf"
-    }
-  },
-  {
     "id": "401",
     "nombre": "Pinza de Tubo Neumático 4mm",
     "descripcion": "Soporte multisuperficial para tubos neumaticos de 4mm.(Es necesario el uso de cinta de doble cara)",
