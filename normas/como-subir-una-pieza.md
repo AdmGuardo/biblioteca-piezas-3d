@@ -32,7 +32,7 @@ Cada categoría tiene reservado un rango de IDs de tres cifras. El número X00 (
 | `din` | 3XX | 301 – 399 | Piezas normalizadas según norma DIN... |
 | `otros` | 9XX | 901 – 999 | Cualquier pieza que no encaje arriba |
 
-> ⚠️ Antes de crear tu ficha, comprueba al final de la web a la derecha o en `piezas/index.json` qué IDs ya están en uso para elegir el siguiente disponible.
+> ⚠️ Antes de crear tu ficha, comprueba al final del catálogo web a la derecha o en `piezas/index.json` qué IDs ya están en uso para elegir el siguiente disponible.
 
 ### Formato del nombre de carpeta
 
