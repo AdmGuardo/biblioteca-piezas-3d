@@ -31,9 +31,9 @@ Ejemplo completo: `piezas/engranajes/007-pinza-neumatica/`
 
 | Correcto | Incorrecto |
 |----------|------------|
-| `001-helicoidal` | `1-Helicoidal` |
-| `007-pinza-neumatica` | `07 pinza neumática` |
-| `012-tapa-motor` | `012_tapa_motor` |
+| `201-helicoidal` | `1-Helicoidal` |
+| `307-pinza-neumatica` | `07 pinza neumática` |
+| `112-tapa-motor` | `012_tapa_motor` |
 
 ---
 
