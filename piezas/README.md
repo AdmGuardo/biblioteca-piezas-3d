@@ -37,9 +37,21 @@ piezas/
 
 │   │ 
 
-└── carcasas/ 
+└── DIN/ 
 
-│   └── 004-nombre-pieza/ 
+│   └── 304-nombre-pieza/ 
+
+│   │   └── ficha.json 
+
+│   │   ├── preview.png 
+
+│   │   ├── pieza.stl 
+
+│   │   └── plano.pdf
+
+└── Otros/ 
+
+│   └── 905-nombre-pieza/ 
 
 │   │   └── ficha.json 
 
@@ -56,10 +68,10 @@ piezas/
 
 | Carpeta | Descripción |
 |---------|-------------|
-| `engranajes/` | Engranajes de cualquier tipo (helicoidal, cónico, recto...) |
-| `soportes/` | Soportes y anclajes para motores, sensores, etc. |
-| `carcasas/` | Carcasas, cajas y cubiertas |
-| `otros/` | Piezas que no encajan en las categorías anteriores |
+| `engranajes/` | ID:100-Engranajes de cualquier tipo (helicoidal, cónico, recto...) |
+| `soportes/` | ID:200-Soportes y anclajes para motores, sensores, etc. |
+| `DIN/` | ID:300-Carcasas, cajas y cubiertas |
+| `otros/` | ID:900-Piezas que no encajan en las categorías anteriores |
 
 ---
 
@@ -67,10 +79,10 @@ piezas/
 
 Formato: `XXX-nombre-descriptivo`
 
-- `XXX` = número correlativo de tres dígitos (001, 002, 003...)
+- `XXX` = número correlativo de tres dígitos (108,145,207,...)
 - nombre en minúsculas y con guiones, sin espacios ni tildes
 
-Ejemplos correctos: `001-helicoidal`, `007-pinza-neumatica`, `012-tapa-motor`
+Ejemplos correctos: `101-helicoidal`, `907-pinza-neumatica`, `312-tapa-motor`
 
 ---
 
