@@ -19,7 +19,6 @@ piezas/
         ├── ficha.json      ← OBLIGATORIO
         ├── preview.png     ← Imagen que aparece en la web
         ├── pieza.stl       ← Archivo de impresión
-        ├── pieza.f3d       ← Archivo fuente editable
         └── plano.pdf       ← Plano técnico
 ```
 
@@ -29,7 +28,7 @@ piezas/
 |---------|----------------|
 | `engranajes` | Engranajes helicoidales, cónicos, rectos... |
 | `soportes` | Soportes de motores, sensores, guías... |
-| `carcasas` | Carcasas, cajas, cubiertas... |
+| `din` | Piezas normalizadas según norma DIN... |
 | `otros` | Cualquier pieza que no encaje arriba |
 
 ### Formato del nombre de carpeta
@@ -65,8 +64,6 @@ Ejemplos: `002-conico`, `007-pinza-neumatica`, `012-tapa-motor`
   "estado": "desarrollo",
   "autor": "Tu nombre y apellidos",
   "curso": "2024-2025",
-  "material": "PLA",
-  "peso": "0.50 kg",
   "imagen": "piezas/engranajes/002-conico/preview.png",
   "archivos": {
     "stl": "piezas/engranajes/002-conico/pieza.stl",
@@ -91,10 +88,10 @@ Ejemplos: `002-conico`, `007-pinza-neumatica`, `012-tapa-motor`
 
 ---
 
-### Paso 3 — Subir STL, F3D y planos
+### Paso 3 — Subir STL y planos
 
 1. Dentro de tu carpeta pulsa **"Add file"** → **"Upload files"**
-2. Arrastra todos los archivos (STL, F3D, PDF...)
+2. Arrastra todos los archivos (STL, PDF...)
 3. Pulsa **"Commit changes"**
 
 ---
