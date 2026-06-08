@@ -37,7 +37,7 @@ piezas/
 XXX-nombre-descriptivo
 ```
 
-Ejemplos: `002-conico`, `007-pinza-neumatica`, `012-tapa-motor`
+Ejemplos: `102-conico`, `407-pinza-neumatica`, `101-helicoidal`
 
 ---
 
