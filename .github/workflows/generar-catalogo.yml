@@ -1,1 +1,93 @@
+# Nombre que aparecerá en la pestaña Actions de GitHub
+name: Generar catálogo
 
+# Eventos que disparan el workflow
+on:
+  # Se ejecuta cuando se hace push a cualquier ficha.json dentro de piezas/
+  push:
+    paths:
+      - 'piezas/**/ficha.json'
+
+  # Permite ejecutarlo manualmente desde GitHub
+  workflow_dispatch:
+
+jobs:
+  build:
+    # Máquina virtual donde se ejecutará el proceso
+    runs-on: ubuntu-latest
+
+    steps:
+      # Descarga el contenido del repositorio en la máquina virtual
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      # Genera automáticamente el archivo piezas/index.json
+      - name: Generar piezas/index.json
+        run: |
+          python3 - <<'EOF'
+          import json
+          from pathlib import Path
+
+          # Lista donde se almacenarán todas las fichas encontradas
+          piezas = []
+
+          # Busca recursivamente todos los archivos ficha.json
+          # dentro de la carpeta piezas/
+          for ficha_path in sorted(Path("piezas").rglob("ficha.json")):
+              try:
+                  # Carga el contenido JSON de la ficha
+                  with open(ficha_path, encoding="utf-8") as f:
+                      data = json.load(f)
+
+                  # Ruta de la carpeta que contiene la ficha
+                  base = str(ficha_path.parent)
+
+                  # Si la imagen tiene una ruta relativa,
+                  # la convierte en una ruta completa dentro del repositorio
+                  if data.get("imagen") and not data["imagen"].startswith("piezas/"):
+                      data["imagen"] = f"{base}/{data['imagen']}"
+
+                  # Hace lo mismo para todos los archivos definidos
+                  # en el objeto "archivos"
+                  if data.get("archivos"):
+                      for key, val in data["archivos"].items():
+                          if val and not val.startswith("piezas/"):
+                              data["archivos"][key] = f"{base}/{val}"
+
+                  # Añade la ficha procesada al catálogo
+                  piezas.append(data)
+
+                  print(f"✔ {ficha_path}")
+
+              except Exception as e:
+                  # Si una ficha tiene errores, se registra y continúa
+                  print(f"✘ Error en {ficha_path}: {e}")
+
+          # Guarda todas las fichas en un único índice
+          with open("piezas/index.json", "w", encoding="utf-8") as f:
+              json.dump(
+                  piezas,
+                  f,
+                  ensure_ascii=False,  # Conserva caracteres Unicode
+                  indent=2             # Formato legible
+              )
+
+          print(f"\nTotal: {len(piezas)} pieza(s) indexada(s)")
+          EOF
+
+      # Guarda el nuevo index.json en el repositorio
+      - name: Commit y push del índice actualizado
+        run: |
+          # Configura el usuario que realizará el commit
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Añade el índice generado al área de staging
+          git add piezas/index.json
+
+          # Si hay cambios, crea un commit
+          git diff --cached --quiet || \
+            git commit -m "Auto: actualizar piezas/index.json [skip ci]"
+
+          # Envía los cambios al repositorio remoto
+          git push
