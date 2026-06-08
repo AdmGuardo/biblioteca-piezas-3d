@@ -1,37 +1,5 @@
 [
   {
-    "id": "001",
-    "nombre": "Engranaje Helicoidal",
-    "descripcion": "Pieza mecánica de transmisión de potencia de alta resistencia.",
-    "categoria": "engranajes",
-    "estado": "desarrollo",
-    "autor": "Profesor demo",
-    "curso": "2024-2025",
-    "material": "PLA+",
-    "peso": "1.24 kg",
-    "imagen": "piezas/engranajes/001-helicoidal/preview.png",
-    "archivos": {
-      "stl": "piezas/engranajes/001-helicoidal/pieza.stl",
-      "plano": "piezas/engranajes/001-helicoidal/plano.pdf"
-    }
-  },
-  {
-    "id": "002",
-    "nombre": "Engranaje Cónico",
-    "descripcion": "Engranaje para transmisión de movimiento entre ejes perpendiculares.",
-    "categoria": "engranajes",
-    "estado": "desarrollo",
-    "autor": "Profesor demo",
-    "curso": "2024-2025",
-    "material": "PLA",
-    "peso": "0.85 kg",
-    "imagen": "piezas/engranajes/002-conico/preview.png",
-    "archivos": {
-      "stl": "piezas/engranajes/002-conico/pieza.stl",
-      "plano": "piezas/engranajes/002-conico/plano.pdf"
-    }
-  },
-  {
     "id": "401",
     "nombre": "Pinza de Tubo Neumático 4mm",
     "descripcion": "Soporte multisuperficial para tubos neumaticos de 4mm.(Es necesario el uso de cinta de doble cara)",
