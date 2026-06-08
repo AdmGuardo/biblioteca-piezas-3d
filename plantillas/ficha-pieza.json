@@ -6,12 +6,9 @@
   "estado": "desarrollo",
   "autor": "Nombre del alumno",
   "curso": "2024-2025",
-  "material": "PLA / ABS / PETG",
-  "peso": "0.00 kg",
   "imagen": "piezas/CATEGORIA/XXX-nombre-pieza/preview.png",
   "archivos": {
     "stl": "piezas/CATEGORIA/XXX-nombre-pieza/pieza.stl",
-    "f3d": "piezas/CATEGORIA/XXX-nombre-pieza/pieza.f3d",
     "plano": "piezas/CATEGORIA/XXX-nombre-pieza/plano.pdf"
   }
 }
