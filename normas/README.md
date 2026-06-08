@@ -49,7 +49,6 @@ Ejemplo completo: `piezas/engranajes/007-pinza-neumatica/`
 | Archivo | Descripción |
 |---------|-------------|
 | `preview.png` | Imagen de portada en la tarjeta web |
-| `pieza.stl` | Archivo fuente editable |
 | `plano.pdf` | Plano técnico |
 
 ---
