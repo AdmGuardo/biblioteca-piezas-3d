@@ -22,14 +22,18 @@ piezas/
         └── plano.pdf       ← Plano técnico
 ```
 
-### Categorías disponibles
+### Categorías disponibles y rangos de ID
 
-| Carpeta | Tipo de piezas |
-|---------|----------------|
-| `engranajes` | Engranajes helicoidales, cónicos, rectos... |
-| `soportes` | Soportes de motores, sensores, guías... |
-| `din` | Piezas normalizadas según norma DIN... |
-| `otros` | Cualquier pieza que no encaje arriba |
+Cada categoría tiene reservado un rango de IDs de tres cifras. El número X00 (100, 200, 300, 900) está reservado y **no se puede usar**.
+
+| Carpeta | Rango de IDs | IDs válidos | Tipo de piezas |
+|---------|-------------|-------------|----------------|
+| `engranajes` | 1XX | 101 – 199 | Engranajes helicoidales, cónicos, rectos... |
+| `soportes` | 2XX | 201 – 299 | Soportes de motores, sensores, guías... |
+| `din` | 3XX | 301 – 399 | Piezas normalizadas según norma DIN... |
+| `otros` | 9XX | 901 – 999 | Cualquier pieza que no encaje arriba |
+
+> ⚠️ Antes de crear tu ficha, comprueba en `piezas/index.json` qué IDs ya están en uso para elegir el siguiente disponible.
 
 ### Formato del nombre de carpeta
 
@@ -37,7 +41,7 @@ piezas/
 XXX-nombre-descriptivo
 ```
 
-Ejemplos: `102-conico`, `407-pinza-neumatica`, `101-helicoidal`
+Ejemplos: `002-conico`, `007-pinza-neumatica`, `012-tapa-motor`
 
 ---
 
