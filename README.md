@@ -56,10 +56,12 @@ Puedes ver el estado de ese proceso en la pestaña **Actions** del repositorio.
 
 | Nº  | Pieza                | Estado        |
 |-----|----------------------|---------------|
-| 001 | Engranaje Helicoidal | En desarrollo |
+| 101 | Engranaje            | En desarrollo |
+| 102 | Engranaje            | En revision   |
+| 103 | Engranaje            | Finalizado    |
 
 ---
 
 ## Departamento
 
-**Mantenimiento Electromecánico** · Curso 2024-2025
+**Mantenimiento Electromecánico** · Curso 2025-2026
