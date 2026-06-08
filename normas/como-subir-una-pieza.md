@@ -46,9 +46,7 @@ Ejemplos: `302-engranaje-conico`, `107-pinza-neumatica`, `412-tapa-rele`
 
 ## Paso a paso desde la web de GitHub
 
-### Paso 1 — Crear el archivo ficha.json
-
-1. Ve al repositorio en GitHub
+1. Ve al repositorio en GitHub y accede a la carpeta de `piezas`
 2. Pulsa **"Add file"** → **"Create new file"**
 3. Escribe la ruta completa en el campo del nombre, por ejemplo:
    ```
