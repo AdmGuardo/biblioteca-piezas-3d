@@ -1,6 +1,6 @@
 # Plantillas
 
-Esta carpeta contiene las plantillas para documentar una pieza nueva.
+Plantillas para documentar una pieza nueva.
 
 ---
 
@@ -8,15 +8,21 @@ Esta carpeta contiene las plantillas para documentar una pieza nueva.
 
 | Archivo | Para qué sirve |
 |---------|----------------|
-| `ficha-pieza.json` | **Plantilla principal** — es la que alimenta el catálogo web. Cópiala como `ficha.json` dentro de tu carpeta en `piezas/` |
-| `ficha-pieza.md` | Plantilla en texto plano — útil como referencia o para documentación adicional, pero no es la que lee el sistema |
+| `ficha-pieza.json` | **Plantilla principal** — es la que alimenta el catálogo web. Cópiala como `ficha.json` dentro de tu carpeta de pieza |
+| `ficha-pieza.md` | Plantilla en texto plano — útil como documentación adicional, pero no la lee el sistema |
 
 ---
 
 ## Cómo usar la plantilla JSON
 
-1. Copia `ficha-pieza.json` en tu carpeta de pieza: `piezas/XXX-nombre-pieza/ficha.json`
-2. Rellena todos los campos
+1. Copia `ficha-pieza.json` en la ruta de tu pieza:
+   ```
+   piezas/CATEGORIA/XXX-nombre-pieza/ficha.json
+   ```
+   Ejemplo: `piezas/engranajes/002-conico/ficha.json`
+
+2. Rellena todos los campos del JSON
+
 3. Respeta los valores válidos:
 
 | Campo | Valores aceptados |
@@ -24,7 +30,12 @@ Esta carpeta contiene las plantillas para documentar una pieza nueva.
 | `categoria` | `engranajes`, `soportes`, `carcasas`, `otros` |
 | `estado` | `desarrollo`, `finalizado`, `revision` |
 
-4. Haz commit — el catálogo web se actualiza solo
+4. En los campos `imagen` y `archivos`, usa la ruta completa desde la raíz del repositorio:
+   ```
+   "imagen": "piezas/engranajes/002-conico/preview.png"
+   ```
+
+5. Haz commit — el catálogo web se actualiza automáticamente
 
 ---
 
