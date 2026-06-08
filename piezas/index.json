@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "id": "001",
+    "nombre": "Bastidor para Enchufe",
+    "descripcion": "Soporte diseñado para fijar mecanismos de enchufe en cajas de empotrar, proporcionando estabilidad y alineación durante el montaje.",
+    "categoria": "soportes",
+    "estado": "desarrollo",
+    "autor": "Profesor demo",
+    "curso": "2025-2026",
+    "material": "PLA",
+    "peso": "0.05 kg",
+    "imagen": "piezas/soportes/002-bastidor-enchufe/preview.png",
+    "archivos": {
+      "stl": "piezas/soportes/002-bastidor-enchufe/pieza.stl",
+      "plano": "piezas/soportes/002-bastidor-enchufe/plano.pdf"
+    }
+  }
+]
