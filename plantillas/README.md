@@ -9,7 +9,6 @@ Plantillas para documentar una pieza nueva.
 | Archivo | Para qué sirve |
 |---------|----------------|
 | `ficha-pieza.json` | **Plantilla principal** — es la que alimenta el catálogo web. Cópiala como `ficha.json` dentro de tu carpeta de pieza |
-| `ficha-pieza.md` | Plantilla en texto plano — útil como documentación adicional, pero no la lee el sistema |
 
 ---
 
@@ -19,7 +18,7 @@ Plantillas para documentar una pieza nueva.
    ```
    piezas/CATEGORIA/XXX-nombre-pieza/ficha.json
    ```
-   Ejemplo: `piezas/engranajes/002-conico/ficha.json`
+   Ejemplo: `piezas/engranajes/202-conico/ficha.json`
 
 2. Rellena todos los campos del JSON
 
@@ -27,12 +26,12 @@ Plantillas para documentar una pieza nueva.
 
 | Campo | Valores aceptados |
 |-------|-------------------|
-| `categoria` | `engranajes`, `soportes`, `carcasas`, `otros` |
+| `categoria` | `engranajes`, `soportes`, `DIN`, `otros` |
 | `estado` | `desarrollo`, `finalizado`, `revision` |
 
 4. En los campos `imagen` y `archivos`, usa la ruta completa desde la raíz del repositorio:
    ```
-   "imagen": "piezas/engranajes/002-conico/preview.png"
+   "imagen": "piezas/engranajes/302-conico/preview.png"
    ```
 
 5. Haz commit — el catálogo web se actualiza automáticamente
