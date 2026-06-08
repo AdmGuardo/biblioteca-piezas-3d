@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const iconoCategoria = {
         engranajes: 'settings',
         soportes:   'wrench',
-        carcasas:   'box',
+        din:        'ruler',
         otros:      'package'
     };
 
