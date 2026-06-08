@@ -55,7 +55,8 @@ piezas/categoria/id-nombre-pieza/ficha.json
    ```
    > Al escribir `/` GitHub crea las carpetas automáticamente
 
-5. Pega este contenido y rellena tus datos:
+5. Pega este contenido y rellena tus datos al terminar de escribir lo anterior:
+`Esto se debe oegar en el apartado de contenido de la ultima carpeta, no en el nombre como lo anterior`
 
 ```json
 {
