@@ -19,5 +19,5 @@ Tiempo estimado o real.
 ## Archivos incluidos
 
 - STL
-- Fotografías
+- Fotografía
 - Planos
