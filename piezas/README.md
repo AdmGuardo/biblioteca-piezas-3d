@@ -93,7 +93,6 @@ Ejemplos correctos: `101-helicoidal`, `907-pinza-neumatica`, `312-tapa-motor`
 | `ficha.json` | **Obligatorio** | Metadatos que alimentan el catálogo web |
 | `preview.png` | Recomendado | Imagen de portada en la tarjeta web |
 | `pieza.stl` | **Obligatorio** | Archivo para impresión 3D |
-| `pieza.f3d` | Recomendado | Archivo fuente editable (Fusion 360) |
 | `plano.pdf` | Recomendado | Plano técnico |
 
 > ⚠️ Sin `ficha.json` la pieza no aparece en el catálogo web.
