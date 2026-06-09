@@ -1,0 +1,14 @@
+{
+  "id": "367",
+  "nombre": "Nombre de la pieza",
+  "descripcion": "Descripción breve de la pieza y su función.",
+  "categoria": "engranajes",
+  "estado": "finalizado",
+  "autor": "Nombre del alumno",
+  "curso": "2025-2026",
+  "imagen": "piezas/CATEGORIA/XXX-nombre-pieza/preview.png",
+  "archivos": {
+    "stl": "piezas/CATEGORIA/XXX-nombre-pieza/pieza.stl",
+    "plano": "piezas/CATEGORIA/XXX-nombre-pieza/plano.pdf"
+  }
+}
