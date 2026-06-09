@@ -1,19 +1,5 @@
 [
   {
-    "id": "901",
-    "nombre": "Tapa de Caja de Bornes Personalizada",
-    "descripcion": "Tapa de repuesto para caja de bornes eléctrica. Diseñada a medida para sustituir tapas dañadas o perdidas.",
-    "categoria": "otros",
-    "estado": "desarollo",
-    "autor": "Nombre del alumno",
-    "curso": "2025-2026",
-    "imagen": "piezas/otros/901-tapa-caja-bornes/preview.png",
-    "archivos": {
-      "stl": "piezas/otros/901-tapa-caja-bornes/pieza.stl",
-      "plano": "piezas/otros/901-tapa-caja-bornes/plano.pdf"
-    }
-  },
-  {
     "id": "902",
     "nombre": "Manivela para Válvula de Corte",
     "descripcion": "Manivela de accionamiento manual para válvula de corte. Sustituye a la manivela original cuando esta se rompe o extravía.",
