@@ -1,1 +1,14 @@
-
+{
+  "id": "204",
+  "nombre": "Doble pinza tubo neumatico de 6mm",
+  "descripcion": "Sujeccion multisuperficie para dobles tubos de 6mm. (Es necesario el uso de cinta de doble cara).",
+  "categoria": "soportes",
+  "estado": "revision",
+  "autor": "Jimena Gómez Villacorta",
+  "curso": "2025-2026",
+  "imagen": "piezas/soportes/204-doble-pinza-tubo-neumatico-6mm/preview.png",
+  "archivos": {
+    "stl": "piezas/soportes/204-doble-pinza-tubo-neumatico-6mm/pieza.stl",
+    "plano": "piezas/soportes/204-doble-pinza-tubo-neumatico-6mm/plano.pdf"
+  }
+}
