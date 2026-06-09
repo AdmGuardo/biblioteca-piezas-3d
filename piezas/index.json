@@ -1,19 +1,5 @@
 [
   {
-    "id": "101",
-    "nombre": "Engranaje Helicoidal",
-    "descripcion": "Pieza mecánica de transmisión de potencia de alta resistencia.",
-    "categoria": "engranajes",
-    "estado": "desarrollo",
-    "autor": "Profesor demo",
-    "curso": "2024-2025",
-    "imagen": "piezas/engranajes/101-helicoidal/preview.png",
-    "archivos": {
-      "stl": "piezas/engranajes/101-helicoidal/pieza.stl",
-      "plano": "piezas/engranajes/101-helicoidal/plano.pdf"
-    }
-  },
-  {
     "id": "102",
     "nombre": "Engranaje Cónico",
     "descripcion": "Engranaje para transmisión de movimiento entre ejes perpendiculares.",
