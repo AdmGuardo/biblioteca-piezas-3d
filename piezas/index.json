@@ -1,19 +1,5 @@
 [
   {
-    "id": "902",
-    "nombre": "Manivela para Válvula de Corte",
-    "descripcion": "Manivela de accionamiento manual para válvula de corte. Sustituye a la manivela original cuando esta se rompe o extravía.",
-    "categoria": "otros",
-    "estado": "desarrollo",
-    "autor": "Nombre del alumno",
-    "curso": "2025-2026",
-    "imagen": "piezas/otros/902-manivela-valvula-corte/preview.png",
-    "archivos": {
-      "stl": "piezas/otros/902-manivela-valvula-corte/pieza.stl",
-      "plano": "piezas/otros/902-manivela-valvula-corte/plano.pdf"
-    }
-  },
-  {
     "id": "201",
     "nombre": "Soporte de pinza para tubos neumáticos de 4mm",
     "descripcion": "Sujeccion multisuperficie para tubos de 4mm. (Es necesario el uso de cinta de doble cara).",
