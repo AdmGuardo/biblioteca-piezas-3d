@@ -63,10 +63,10 @@
     "estado": "finalizado",
     "autor": "Nombre del alumno",
     "curso": "2025-2026",
-    "imagen": "piezas/CATEGORIA/XXX-nombre-pieza/preview.png",
+    "imagen": "piezas/soportes/367-pieza-prueba/previewprueba.png",
     "archivos": {
-      "stl": "piezas/CATEGORIA/XXX-nombre-pieza/pieza.stl",
-      "plano": "piezas/CATEGORIA/XXX-nombre-pieza/plano.pdf"
+      "stl": "piezas/soportes/367-pieza-prueba/piezaprueba.stl",
+      "plano": "piezas/soportes/367-pieza-prueba/planoprueba.pdf"
     }
   }
 ]
