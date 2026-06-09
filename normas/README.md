@@ -20,7 +20,7 @@ Dentro de cada categoría, una carpeta por pieza con el formato:
 XXX-nombre-descriptivo
 ```
 
-Ejemplo completo: `piezas/engranajes/007-pinza-neumatica/`
+Ejemplo completo: `piezas/engranajes/107-pinza-neumatica/`
 
 ---
 
